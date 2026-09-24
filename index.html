@@ -435,7 +435,7 @@ function renderChatOrder(payload){
  saved.forEach(m=>addBubble(m.text,m.who,false));
  const items=cart.map(x=>`<div class=\"order-line\"><span>${x.qty} × ${x.name}</span><b>${brl(x.price*x.qty)}</b></div>`).join("");
  const order=document.createElement("div"); order.className="order-card";
- order.innerHTML=`<h3>🧾 Pedido #${window.orderId}</h3>${items}<div class=\"order-line\"><strong>Total</strong><strong>${brl(window.orderTotal)}</strong></div><div class=\"chat-pay\">💠 <b>Pagamento via Pix</b><br><small>Faça o pagamento e envie o comprovante aqui no chat.</small><img class=\"chat-qr\" src=\"https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=${encodeURIComponent(payload)}\" alt=\"QR Code Pix\"></div>`;
+ order.innerHTML=`<h3>🧾 Pedido #${window.orderId}</h3>${items}<div class="order-line"><strong>Total</strong><strong>${brl(window.orderTotal)}</strong></div><div class="chat-pay">💳 <b>Escolha a forma de pagamento</b><br><button class="primary" style="margin-top:10px" onclick="payWithBalance()">💰 Pagar com saldo do Gift Card</button><div id="balancePayStatus" style="margin-top:8px;font-size:12px;color:#9fb1c8">Consultando seu saldo...</div><hr style="border:0;border-top:1px solid #2a3b57;margin:14px 0"><div>💠 <b>Pagamento via Pix</b><br><small>Faça o pagamento e envie o comprovante aqui no chat.</small><img class="chat-qr" src="https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=${encodeURIComponent(payload)}" alt="QR Code Pix"></div></div>`;
  body.appendChild(order);
  addBubble("Olá! 👋 Seu pedido foi aberto aqui no site. Faça o Pix e envie o comprovante nesta conversa para continuar o atendimento.","store",true);
  body.scrollTop=body.scrollHeight;
@@ -446,6 +446,22 @@ function addBubble(text,who,save=true){
 }
 function sendChat(){const i=document.getElementById("chatInput");const t=i.value.trim();if(!t)return;addBubble(t,"user");i.value="";setTimeout(()=>addBubble("Mensagem recebida! Um atendente continuará seu pedido por este chat durante o horário de funcionamento (12:20 às 21:00).","store"),450);}
 function confirmOrderMessage(){addBubble(`📦 Pedido #${window.orderId} — ${brl(window.orderTotal)}\nPagamento realizado? Envie o comprovante aqui para conferência.`,'user');setTimeout(()=>addBubble("Perfeito! Aguarde a conferência do pagamento. O atendimento continuará por aqui.","store"),450);}
+async function payWithBalance(){
+ const status=document.getElementById("balancePayStatus");
+ if(status) status.textContent="Verificando saldo...";
+ const user=await gcUser();
+ if(!user){if(status) status.textContent="Não foi possível criar sua sessão automática.";return;}
+ const {data:bal,error:be}=await sb.rpc('get_wallet_balance');
+ if(be){if(status) status.textContent="Não foi possível consultar o saldo.";return;}
+ const balance=Number(bal||0), total=Number(window.orderTotal||0);
+ if(balance<total){if(status) status.textContent=`Saldo insuficiente. Saldo atual: ${brl2(balance)}.`;return;}
+ if(!confirm(`Confirmar pagamento de ${brl2(total)} usando seu saldo?`)) return;
+ const {data,error}=await sb.rpc('pay_with_balance',{p_amount:total});
+ if(error){if(status) status.textContent=error.message;return;}
+ if(status) status.textContent=`✅ Pagamento aprovado! Saldo restante: ${brl2(data||0)}.`;
+ addBubble(`💰 Pedido #${window.orderId} pago com saldo do Gift Card. Total: ${brl2(total)}.`,'user');
+ setTimeout(()=>addBubble("✅ Pagamento confirmado! Seu pedido foi enviado para atendimento.",'store'),250);
+}
 function copyPix(){navigator.clipboard?.writeText(window.pixPayload).then(()=>addBubble("📋 Pix Copia e Cola copiado!",'store')).catch(()=>addBubble(window.pixPayload,'store'));}
 function crc16(s){let crc=0xFFFF;for(let c of s){crc^=c.charCodeAt(0)<<8;for(let i=0;i<8;i++)crc=(crc&0x8000)?((crc<<1)^0x1021)&0xFFFF:(crc<<1)&0xFFFF;}return crc.toString(16).toUpperCase().padStart(4,"0");}
 function field(id,value){return id+String(value.length).padStart(2,"0")+value;}
