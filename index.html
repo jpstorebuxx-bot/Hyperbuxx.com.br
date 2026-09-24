@@ -42,6 +42,12 @@ window.HYPERBUXX_SUPABASE_URL='https://qubcqwtmomrtewwfodho.supabase.co';
 window.HYPERBUXX_SUPABASE_KEY='sb_publishable_-dWXcJVseWksqKN5YKgiRg_BI92MBkw';
 window.hxSupabase=window.supabase.createClient(window.HYPERBUXX_SUPABASE_URL,window.HYPERBUXX_SUPABASE_KEY);
 </script>
+
+<style id="giftcard-style">
+.gc-launch{position:fixed;left:16px;bottom:16px;z-index:5000;background:linear-gradient(90deg,#168cff,#7b45ff);color:#fff;border:0;border-radius:14px;padding:12px 16px;font-weight:900;box-shadow:0 8px 28px #0008;cursor:pointer}
+.gc-overlay{display:none;position:fixed;inset:0;z-index:7000;background:#000c;align-items:center;justify-content:center;padding:16px}.gc-overlay.open{display:flex}
+.gc-box{width:min(560px,100%);max-height:90vh;overflow:auto;background:#0b1424;color:#fff;border:1px solid #31517d;border-radius:20px;padding:20px}.gc-box input,.gc-box select{width:100%;box-sizing:border-box;padding:12px;margin:6px 0;border-radius:10px;border:1px solid #30476c;background:#07101d;color:#fff}.gc-box button{padding:10px 14px;border:0;border-radius:10px;background:#1769ff;color:#fff;font-weight:800;margin:4px;cursor:pointer}.gc-close{float:right;background:#273650!important}.gc-card{background:#101e33;border:1px solid #2c4568;border-radius:12px;padding:11px;margin:8px 0}.gc-muted{opacity:.75;font-size:12px}.gc-success{color:#55e29b}.gc-error{color:#ff7c8a}.gc-admin{border-top:1px solid #29415f;margin-top:15px;padding-top:15px}
+</style>
 </head>
 <body>
 <header class="top">
@@ -155,31 +161,31 @@ let products=[
 {id:14,cat:"blox",name:"Draco + Cyborg + Ghoul V4 Full + Level Máximo + CDK + God Human",price:89,icon:"👑",hot:true},
 {id:15,cat:"blox",name:"7 Raças V4 Full + CDK + God Human + Chance de Mítica",price:69,icon:"👑",hot:true},
 {id:200,cat:"blox",name:"7 Raças V4 Full + Sanguine Art + Dragão Permanente",price:250,icon:"🐉",hot:true},
-    {id:201,cat:"blox",name:"Magnet Permanente",price:135,icon:"🧲",hot:true},
-{id:16,cat:"blox",name:"Dragão Permanente (vem as duas versões)",price:180,icon:"🐲"},
-{id:17,cat:"blox",name:"Nova Control Permanente",price:148,icon:"🎮"},
-{id:18,cat:"blox",name:"Kitsune Permanente",price:148,icon:"🦊"},
-{id:19,cat:"blox",name:"Nova Tigr Permanente",price:115,icon:"🐯"},
-{id:20,cat:"blox",name:"Yeti Permanente",price:115,icon:"❄️"},
-{id:21,cat:"blox",name:"Venom Permanente",price:104,icon:"☠️"},
-{id:22,cat:"blox",name:"Spirit Permanente",price:101,icon:"👻"},
-{id:23,cat:"blox",name:"Gás Permanente",price:100,icon:"💨"},
-{id:24,cat:"blox",name:"Sombra Permanente",price:99,icon:"🌑"},
-{id:25,cat:"blox",name:"Blizzard Permanente",price:96,icon:"🌨️"},
-{id:26,cat:"blox",name:"Dough Permanente",price:95,icon:"🍩"},
-{id:27,cat:"blox",name:"T-Rex Permanente",price:95,icon:"🦖"},
-{id:28,cat:"blox",name:"Mamute Permanente",price:95,icon:"🦣"},
-{id:29,cat:"blox",name:"Nova Fruta Gravity Rework Permanente",price:94,icon:"🪐"},
-{id:30,cat:"blox",name:"Nova Phoenix Permanente",price:94,icon:"🔥"},
-{id:31,cat:"blox",name:"Pain Permanente",price:89,icon:"💥"},
-{id:32,cat:"blox",name:"Lightning Permanente",price:86,icon:"⚡"},
-{id:33,cat:"blox",name:"Buddha Permanente",price:83,icon:"🧘"},
-{id:34,cat:"blox",name:"Portal Permanente",price:76,icon:"🌀"},
-{id:35,cat:"blox",name:"Nova Fruta Creation Rework Permanente",price:74,icon:"✨"},
-{id:36,cat:"blox",name:"Magma Permanente",price:67,icon:"🌋"},
-{id:37,cat:"blox",name:"Light Permanente",price:59,icon:"💡"},
-{id:38,cat:"blox",name:"Nova Fruta Falcon Rework Permanente",price:51,icon:"🦅"},
-{id:39,cat:"blox",name:"Ice Permanente",price:45,icon:"🧊"},
+    {id:201,cat:"blox",name:"Magnet Permanente",price:125,icon:"🧲",hot:true},
+{id:16,cat:"blox",name:"Dragão Permanente (vem as duas versões)",price:170,icon:"🐲"},
+{id:17,cat:"blox",name:"Nova Control Permanente",price:138,icon:"🎮"},
+{id:18,cat:"blox",name:"Kitsune Permanente",price:138,icon:"🦊"},
+{id:19,cat:"blox",name:"Nova Tigr Permanente",price:105,icon:"🐯"},
+{id:20,cat:"blox",name:"Yeti Permanente",price:105,icon:"❄️"},
+{id:21,cat:"blox",name:"Venom Permanente",price:94,icon:"☠️"},
+{id:22,cat:"blox",name:"Spirit Permanente",price:91,icon:"👻"},
+{id:23,cat:"blox",name:"Gás Permanente",price:90,icon:"💨"},
+{id:24,cat:"blox",name:"Sombra Permanente",price:89,icon:"🌑"},
+{id:25,cat:"blox",name:"Blizzard Permanente",price:86,icon:"🌨️"},
+{id:26,cat:"blox",name:"Dough Permanente",price:85,icon:"🍩"},
+{id:27,cat:"blox",name:"T-Rex Permanente",price:85,icon:"🦖"},
+{id:28,cat:"blox",name:"Mamute Permanente",price:85,icon:"🦣"},
+{id:29,cat:"blox",name:"Nova Fruta Gravity Rework Permanente",price:84,icon:"🪐"},
+{id:30,cat:"blox",name:"Nova Phoenix Permanente",price:84,icon:"🔥"},
+{id:31,cat:"blox",name:"Pain Permanente",price:79,icon:"💥"},
+{id:32,cat:"blox",name:"Lightning Permanente",price:76,icon:"⚡"},
+{id:33,cat:"blox",name:"Buddha Permanente",price:73,icon:"🧘"},
+{id:34,cat:"blox",name:"Portal Permanente",price:66,icon:"🌀"},
+{id:35,cat:"blox",name:"Nova Fruta Creation Rework Permanente",price:64,icon:"✨"},
+{id:36,cat:"blox",name:"Magma Permanente",price:57,icon:"🌋"},
+{id:37,cat:"blox",name:"Light Permanente",price:49,icon:"💡"},
+{id:38,cat:"blox",name:"Nova Fruta Falcon Rework Permanente",price:41,icon:"🦅"},
+{id:39,cat:"blox",name:"Ice Permanente",price:35,icon:"🧊"},
 {id:40,cat:"blox",name:"Dark Blade (Yoru)",price:49,icon:"🗡️"},
 {id:41,cat:"blox",name:"Notificador de Frutas",price:99,icon:"🔔"},
 {id:42,cat:"blox",name:"2X Money",price:26,icon:"💰"},
@@ -191,8 +197,8 @@ let products=[
 {id:48,cat:"blox",name:"Caixa Lendária Aleatória",price:36,icon:"📦"},
 {id:49,cat:"blox",name:"Caixa Mítica Aleatória",price:48,icon:"📦"},
 {id:50,cat:"blox",name:"Caixa Robux (sorte) 1K - 50K Robux",price:19,icon:"🎁"},
-{id:51,cat:"blox",name:"Caixa de Frutas Permanente",price:39,icon:"🎲",hot:true},
-{id:52,cat:"blox",name:"Caixa de Dragão Permanente",price:79,icon:"🐉",hot:true},
+{id:51,cat:"blox",name:"Caixa de Frutas Permanente",price:29,icon:"🎲",hot:true},
+{id:52,cat:"blox",name:"Caixa de Dragão Permanente",price:69,icon:"🐉",hot:true},
 {id:53,cat:"blox",name:"Conta com Dog Blade (sorte + 1 item limitado)",price:39,icon:"🐕"},
 {id:54,cat:"blox",name:"Conta com Kitsune ou Dragão + God Human + Level Máx.",price:59,icon:"🦊"},
 {id:55,cat:"blox",name:"+1 Fruta Mítica Aleatória + God Human + Level Máx.",price:19,icon:"🎲"},
@@ -240,8 +246,6 @@ const newRequestedProducts=[
 {id:162,cat:"mm2",name:"Small Set [106 Itens no Total]",price:385.90,icon:"📦"},
 {id:163,cat:"mm2",name:"Blizzard Set [Blizzard + Snowstorm]",price:147.90,icon:"❄️"},
 {id:164,cat:"mm2",name:"Colored Seer Knife - [6 Itens]",price:37.90,icon:"🌈"},
-    {id:202,cat:"mm2",name:"1 Chromatic Box",price:20,icon:"📦",hot:true},
-    {id:203,cat:"mm2",name:"3 Chromatic Box",price:40,icon:"📦",hot:true},
 {id:165,cat:"mm2",name:"Vintage Set - [10 Itens]",price:49.90,icon:"🗡️"},
 {id:166,cat:"mm2",name:"Sparkle Set - [10 Itens]",price:47.90,icon:"✨"},
 {id:167,cat:"mm2",name:"Chroma Bringer Set [Darkbringer + Lightbringer]",price:58.90,icon:"🔫"},
@@ -413,7 +417,6 @@ function toggleSearch(){const s=document.getElementById("search");s.style.displa
 function toggleMenu(){document.getElementById("categorias").scrollIntoView({behavior:"smooth"});}
 async function pay(){
  if(!cart.length){alert("Adicione pelo menos um produto ao carrinho.");return;}
- if(!(await hxRequireLogin())){alert("Faça login ou crie sua conta para comprar.");return;}
  const total=cart.reduce((s,x)=>s+x.price*x.qty,0);
  const payload=makePix(total,"HX"+Date.now().toString().slice(-10));
  window.pixPayload=payload;
@@ -460,27 +463,27 @@ renderProducts();updateCart();
 #hxAccountBtn{position:fixed;right:16px;bottom:16px;z-index:9990;background:#1769ff;color:#fff;border:0;border-radius:14px;padding:12px 16px;font-weight:800;box-shadow:0 8px 30px #0008}
 .hxOv{display:none;position:fixed;inset:0;z-index:9999;background:#000b;align-items:center;justify-content:center;padding:16px}.hxBox{width:min(560px,100%);max-height:90vh;overflow:auto;background:#0d1424;color:#fff;border:1px solid #31446e;border-radius:18px;padding:20px}.hxBox input,.hxBox textarea{width:100%;box-sizing:border-box;padding:12px;margin:6px 0;border-radius:10px;border:1px solid #40527a;background:#080d17;color:#fff}.hxBox button{padding:10px 14px;border:0;border-radius:10px;background:#1769ff;color:#fff;font-weight:700;margin:4px}.hxMsg{background:#17233b;border-radius:10px;padding:10px;margin:7px 0}.hxSmall{opacity:.7;font-size:12px}
 </style>
-<button id="hxAccountBtn">👤 Minha conta</button>
-<div id="hxAuth" class="hxOv"><div class="hxBox"><button onclick="hxClose('hxAuth')">✕</button><h2>Conta HyperBuxx</h2><div id="hxLoginArea"><input id="hxEmail" type="email" placeholder="E-mail"><input id="hxPass" type="password" placeholder="Senha"><button onclick="hxLogin()">Entrar</button><button onclick="hxSignup()">Criar conta</button><p id="hxAuthMsg"></p></div><div id="hxUserArea" style="display:none"><p id="hxUser"></p><button onclick="hxChat()">💬 Chat</button><button onclick="hxLogout()">Sair</button><div id="hxAdmin" style="display:none"><hr><h3>👑 Painel Admin</h3><div id="hxAdminList"></div></div></div></div></div>
-<div id="hxChatOv" class="hxOv"><div class="hxBox"><button onclick="hxClose('hxChatOv')">✕</button><h2>💬 Atendimento HyperBuxx</h2><div id="hxMessages"></div><textarea id="hxText" rows="3" placeholder="Digite sua mensagem..."></textarea><button onclick="hxSend()">Enviar</button></div></div>
-<script>
-(()=>{const sb=window.hxSupabase;const ADMIN_EMAIL='joaopedrodega2@gmail.com';
-const $=id=>document.getElementById(id); window.hxClose=id=>$(id).style.display='none';
-$('hxAccountBtn').onclick=async()=>{$('hxAuth').style.display='flex';await refresh()};
-window.hxLogin=async()=>{let email=$('hxEmail').value.trim(),password=$('hxPass').value;let r=await sb.auth.signInWithPassword({email,password});$('hxAuthMsg').textContent=r.error?r.error.message:'Login realizado!';if(!r.error)await refresh()};
-window.hxSignup=async()=>{let email=$('hxEmail').value.trim(),password=$('hxPass').value;if(password.length<6){$('hxAuthMsg').textContent='A senha deve ter pelo menos 6 caracteres.';return}let r=await sb.auth.signUp({email,password});$('hxAuthMsg').textContent=r.error?r.error.message:'Conta criada! Verifique o e-mail se a confirmação estiver ativada.'};
-window.hxLogout=async()=>{await sb.auth.signOut();await refresh()};
-async function refresh(){let {data:{user}}=await sb.auth.getUser(),ok=!!user;$('hxLoginArea').style.display=ok?'none':'block';$('hxUserArea').style.display=ok?'block':'none';if(ok){$('hxUser').textContent='Logado como: '+user.email;let admin=(user.email||'').toLowerCase()==ADMIN_EMAIL.toLowerCase();$('hxAdmin').style.display=admin?'block':'none';if(admin)loadAdmin()}}
-window.hxChat=async()=>{$('hxAuth').style.display='none';$('hxChatOv').style.display='flex';await loadChat()};
-async function loadChat(){let {data,error}=await sb.from('messages').select('*').order('created_at',{ascending:true});if(error){$('hxMessages').innerHTML='<p>O banco do chat ainda precisa ser configurado no Supabase.</p>';return}$('hxMessages').innerHTML=(data||[]).map(m=>`<div class="hxMsg"><b>${m.is_admin?'👑 Admin':'👤 Cliente'}</b><br>${esc(m.message)}<div class="hxSmall">${new Date(m.created_at).toLocaleString()}</div></div>`).join('')||'<p>Nenhuma mensagem ainda.</p>'}
-window.hxSend=async()=>{let {data:{user}}=await sb.auth.getUser();if(!user){alert('Faça login primeiro.');return}let text=$('hxText').value.trim();if(!text)return;let admin=(user.email||'').toLowerCase()==ADMIN_EMAIL.toLowerCase();let r=await sb.from('messages').insert({user_id:user.id,message:text,is_admin:admin});if(r.error)alert(r.error.message);else{$('hxText').value='';await loadChat()}};
-async function loadAdmin(){let {data,error}=await sb.from('messages').select('*').order('created_at',{ascending:false}).limit(200);if(error){$('hxAdminList').innerHTML='<p>Configure as tabelas/RLS do Supabase.</p>';return}$('hxAdminList').innerHTML=(data||[]).map(m=>`<div class="hxMsg"><b>${m.is_admin?'👑':'👤'} ${m.user_id}</b><br>${esc(m.message)}<div class="hxSmall">${new Date(m.created_at).toLocaleString()}</div></div>`).join('')||'<p>Nenhuma conversa.</p>'}
-function esc(x){return String(x).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-sb.auth.onAuthStateChange(()=>setTimeout(refresh,0));
-})();
-</script>
 
-
+<button class="gc-launch" onclick="gcOpen()">🎁 Gift Card</button>
+<div id="gcOverlay" class="gc-overlay" onclick="if(event.target===this)gcClose()">
+ <div class="gc-box">
+  <button class="gc-close" onclick="gcClose()">✕</button>
+  <h2>🎁 Gift Card HyperBuxx</h2>
+  <p class="gc-muted">Resgate seu código e veja o saldo da sua conta.</p>
+  <input id="gcCode" placeholder="Digite seu código (ex.: HYPER100)" autocomplete="off">
+  <button onclick="gcRedeem()">🎁 Resgatar código</button>
+  <div id="gcMsg"></div>
+  <div class="gc-card"><b>💰 Seu saldo:</b> <span id="gcBalance">Aguarde...</span></div>
+  <div class="gc-admin" id="gcAdmin" style="display:none">
+   <h3>👑 Criar Gift Card</h3>
+   <input id="gcNewCode" placeholder="Código (ex.: HYPER100)">
+   <input id="gcNewValue" type="number" min="1" step="0.01" placeholder="Valor em reais (ex.: 100)">
+   <button onclick="gcCreate()">➕ Criar código</button>
+   <div id="gcAdminMsg"></div>
+   <div id="gcAdminList"></div>
+  </div>
+ </div>
+</div>
 <style>
 .hx-account{position:fixed;right:16px;bottom:16px;z-index:5000;background:#1769ff;color:white;border:0;border-radius:14px;padding:12px 16px;font-weight:800;box-shadow:0 8px 28px #0008}
 .hx-overlay{display:none;position:fixed;inset:0;z-index:6000;background:#000b;align-items:center;justify-content:center;padding:16px}
@@ -490,96 +493,131 @@ sb.auth.onAuthStateChange(()=>setTimeout(refresh,0));
 .hx-close{float:right;background:#273650!important}.hx-muted{font-size:12px;opacity:.75}
 .hx-msg{padding:10px;border-radius:11px;background:#14223a;margin:7px 0}.hx-msg.admin{border-left:3px solid #8b6cff}
 </style>
-<button class="hx-account" onclick="hxAccount()">👤 Entrar / Minha conta</button>
-<div id="hxAuth" class="hx-overlay">
+<button id="hxAdminLauncher" class="hx-admin-launcher" style="display:none">👑 Admin</button>
+<div id="hxAdminLoginOverlay" class="hx-overlay" style="display:none">
  <div class="hx-box">
-  <button class="hx-close" onclick="hxClose('hxAuth')">✕</button>
-  <h2 id="hxAuthTitle">🔐 Entre para comprar</h2>
-  <p class="hx-muted">Você precisa estar logado para finalizar uma compra na HyperBuxx.</p>
-  <div id="hxLoginForm">
-   <input id="hxEmail" type="email" placeholder="E-mail">
-   <input id="hxPass" type="password" placeholder="Senha">
-   <button onclick="hxLogin()">Entrar</button>
-   <button onclick="hxSignup()">Criar conta</button>
-   <p id="hxStatus"></p>
-  </div>
-  <div id="hxLogged" style="display:none">
-   <p id="hxLoggedEmail"></p>
-   <button onclick="hxChat()">💬 Chat da loja</button>
-   <button onclick="hxLogout()">Sair</button>
-   <div id="hxAdmin" style="display:none">
-    <hr><h3>👑 Painel Admin — Mensagens</h3>
-    <div id="hxAdminMsgs"></div>
-   </div>
-  </div>
+  <button class="hx-close" onclick="hxCloseAdminLogin()">✕</button>
+  <h2>🔐 Área administrativa</h2>
+  <p class="hx-muted">Esta tela é somente para o administrador. Clientes não precisam fazer login.</p>
+  <input id="hxAdminEmail" type="email" value="joaopedrodega2@gmail.com" readonly>
+  <input id="hxAdminPass" type="password" placeholder="Senha do administrador" autocomplete="current-password">
+  <button onclick="hxAdminLogin()">Entrar no painel</button>
+  <div id="hxAdminLoginMsg"></div>
  </div>
 </div>
-<div id="hxChat" class="hx-overlay">
+<div id="hxAdminOverlay" class="hx-overlay" style="display:none">
  <div class="hx-box">
-  <button class="hx-close" onclick="hxClose('hxChat')">✕</button>
-  <h2>💬 Chat da HyperBuxx</h2>
-  <div id="hxMessages" style="max-height:48vh;overflow:auto"></div>
-  <textarea id="hxMessage" rows="3" placeholder="Digite sua mensagem..."></textarea>
-  <button onclick="hxSend()">Enviar</button>
+  <button class="hx-close" onclick="hxCloseAdmin()">✕</button>
+  <h2>👑 Painel Admin — HyperBuxx</h2>
+  <p class="hx-muted">Painel administrativo. O acesso do cliente continua sem login.</p>
+  <div id="hxAdminMsgs"></div>
+  <hr>
+  <h3>🎁 Gift Cards</h3>
+  <div id="hxAdminGiftCards"></div>
  </div>
 </div>
 <script>
 (function(){
-const ADMIN_EMAIL="joaopedrodega2@gmail.com";
-const sb=window.hyperbuxxSB;
-window.hxClose=id=>document.getElementById(id).style.display="none";
-window.hxAccount=async()=>{document.getElementById("hxAuth").style.display="flex";await hxRefresh();};
-window.hxLogin=async()=>{
- const email=hxEmail.value.trim(),password=hxPass.value;
- const {error}=await sb.auth.signInWithPassword({email,password});
- hxStatus.textContent=error?error.message:"Login realizado!";
- if(!error) await hxRefresh();
-};
-window.hxSignup=async()=>{
- const email=hxEmail.value.trim(),password=hxPass.value;
- if(password.length<6){hxStatus.textContent="A senha precisa ter pelo menos 6 caracteres.";return;}
- const {error}=await sb.auth.signUp({email,password});
- hxStatus.textContent=error?error.message:"Conta criada! Verifique o e-mail se a confirmação estiver ativada.";
-};
-window.hxLogout=async()=>{await sb.auth.signOut();await hxRefresh();};
-async function hxRefresh(){
- const {data:{user}}=await sb.auth.getUser(), logged=!!user;
- hxLoginForm.style.display=logged?"none":"block";hxLogged.style.display=logged?"block":"none";
- if(logged){
-  hxLoggedEmail.textContent="Logado como: "+user.email;
-  hxAdmin.style.display=(user.email||"").toLowerCase()===ADMIN_EMAIL?"block":"none";
-  if((user.email||"").toLowerCase()===ADMIN_EMAIL) hxLoadAdmin();
+ const sb=window.hxSupabase;
+ const ADMIN_EMAIL='joaopedrodega2@gmail.com';
+ const $=id=>document.getElementById(id);
+ function isAdmin(user){return !!user && (user.email||'').toLowerCase()===ADMIN_EMAIL.toLowerCase();}
+ window.hxCloseAdmin=()=>{$('hxAdminOverlay').style.display='none';};
+ window.hxCloseAdminLogin=()=>{$('hxAdminLoginOverlay').style.display='none';$('hxAdminLoginMsg').textContent='';$('hxAdminPass').value='';};
+ window.hxOpenAdminLogin=()=>{$('hxAdminLoginOverlay').style.display='flex';setTimeout(()=>$('hxAdminPass').focus(),50);};
+ window.hxAdminLogin=async()=>{
+  const email=$('hxAdminEmail').value.trim(); const password=$('hxAdminPass').value;
+  if(!password){$('hxAdminLoginMsg').innerHTML='<p class="hx-muted">Digite a senha.</p>';return;}
+  const {data,error}=await sb.auth.signInWithPassword({email,password});
+  if(error){$('hxAdminLoginMsg').innerHTML='<p style="color:#ff7c8a">'+esc(error.message)+'</p>';return;}
+  if(!isAdmin(data.user)){await sb.auth.signOut();$('hxAdminLoginMsg').innerHTML='<p style="color:#ff7c8a">Acesso não autorizado.</p>';return;}
+  $('hxAdminLoginMsg').innerHTML='<p style="color:#55e29b">Login realizado!</p>';
+  $('hxAdminLoginOverlay').style.display='none';
+  $('hxAdminLauncher').style.display='block';
+  $('hxAdminOverlay').style.display='flex';
+  await loadAdmin();
+ };
+ // Pressione o logo por 1,2 segundo para abrir a área administrativa.
+ const logoEl=document.querySelector('.logo'); let pressTimer=null;
+ const startAdminPress=()=>{clearTimeout(pressTimer);pressTimer=setTimeout(()=>window.hxOpenAdminLogin(),1200);};
+ const cancelAdminPress=()=>clearTimeout(pressTimer);
+ ['touchstart','mousedown'].forEach(ev=>logoEl.addEventListener(ev,startAdminPress,{passive:true}));
+ ['touchend','touchcancel','mouseup','mouseleave'].forEach(ev=>logoEl.addEventListener(ev,cancelAdminPress,{passive:true}));
+ async function refreshAdmin(){
+  const {data:{user}}=await sb.auth.getUser();
+  const admin=isAdmin(user);
+  $('hxAdminLauncher').style.display=admin?'block':'none';
+  if(admin) await loadAdmin();
  }
-}
-window.hxChat=async()=>{hxClose("hxAuth");hxChat.style.display="flex";await hxLoadMessages();};
-async function hxLoadMessages(){
- const {data:{user}}=await sb.auth.getUser();
- if(!user){hxClose("hxChat");return;}
- const {data,error}=await sb.from("messages").select("*").order("created_at",{ascending:true});
- if(error){hxMessages.innerHTML="<p>O chat ainda precisa ser configurado no Supabase.</p>";return;}
- hxMessages.innerHTML=(data||[]).filter(m=>m.user_id===user.id || m.is_admin).map(m=>`<div class="hx-msg ${m.is_admin?'admin':''}"><b>${m.is_admin?'👑 Loja':'👤 Você'}</b><br>${esc(m.message)}<div class="hx-muted">${new Date(m.created_at).toLocaleString()}</div></div>`).join("");
- hxMessages.scrollTop=hxMessages.scrollHeight;
-}
-window.hxSend=async()=>{
- const {data:{user}}=await sb.auth.getUser();
- if(!user){alert("Faça login primeiro.");return;}
- const message=hxMessage.value.trim();if(!message)return;
- const {error}=await sb.from("messages").insert({user_id:user.id,message,is_admin:(user.email||"").toLowerCase()===ADMIN_EMAIL});
- if(error) alert(error.message); else {hxMessage.value="";await hxLoadMessages();}
-};
-async function hxLoadAdmin(){
- const {data,error}=await sb.from("messages").select("*").order("created_at",{ascending:false}).limit(200);
- if(error){hxAdminMsgs.innerHTML="<p>Configure a tabela messages no Supabase.</p>";return;}
- hxAdminMsgs.innerHTML=(data||[]).map(m=>`<div class="hx-msg admin"><b>${m.is_admin?'👑 Você':'👤 Cliente'}</b> <span class="hx-muted">${m.user_id}</span><br>${esc(m.message)}<div class="hx-muted">${new Date(m.created_at).toLocaleString()}</div></div>`).join("");
-}
-function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]));}
-window.hxRequireLogin=async()=>{
- const {data:{user}}=await sb.auth.getUser();
- if(!user){document.getElementById("hxAuth").style.display="flex";return false;}
- return true;
-};
-sb.auth.onAuthStateChange(()=>setTimeout(hxRefresh,0));
-window.addEventListener("DOMContentLoaded",hxRefresh);
+ async function loadAdmin(){
+  const {data,error}=await sb.from('messages').select('*').order('created_at',{ascending:false}).limit(200);
+  $('hxAdminMsgs').innerHTML=error?'<p>Configure a tabela messages no Supabase.</p>':((data||[]).map(m=>`<div class="hx-msg"><b>${m.is_admin?'👑 Você':'👤 Cliente'}</b><br>${esc(m.message)}<div class="hx-muted">${new Date(m.created_at).toLocaleString()}</div></div>`).join('')||'<p>Nenhuma mensagem.</p>');
+  const {data:g,error:ge}=await sb.rpc('admin_list_gift_cards');
+  $('hxAdminGiftCards').innerHTML=ge?'<p>Configure os Gift Cards no Supabase.</p>':((g||[]).map(x=>`<div class="hx-msg"><b>${esc(x.code)}</b> — R$ ${Number(x.value||0).toFixed(2).replace('.',',')}<br><span class="hx-muted">${x.redeemed?'Resgatado':'Disponível'}</span></div>`).join('')||'<p>Nenhum Gift Card.</p>');
+ }
+ $('hxAdminLauncher').onclick=async()=>{const {data:{user}}=await sb.auth.getUser();if(!isAdmin(user)){alert('Acesso restrito ao administrador.');return;}$('hxAdminOverlay').style.display='flex';await loadAdmin();};
+ sb.auth.onAuthStateChange(()=>setTimeout(refreshAdmin,0));
+ window.addEventListener('DOMContentLoaded',()=>setTimeout(refreshAdmin,400));
+ function esc(x){return String(x).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+})();
+</script>
+<style>
+.hx-overlay{position:fixed;inset:0;z-index:99999;background:#000b;align-items:center;justify-content:center;padding:16px}.hx-box{width:min(560px,100%);max-height:90vh;overflow:auto;background:#0d1424;color:#fff;border:1px solid #31446e;border-radius:18px;padding:20px}.hx-close{float:right;background:#273650!important;color:#fff;border:0;border-radius:10px;padding:9px 12px}.hx-muted{font-size:12px;opacity:.75}.hx-msg{background:#17233b;border-radius:10px;padding:10px;margin:7px 0}.hx-admin-launcher{position:fixed;right:16px;bottom:16px;z-index:99998;background:#1769ff;color:#fff;border:0;border-radius:14px;padding:12px 16px;font-weight:800;box-shadow:0 8px 30px #0008}
+</style>
+<script id="giftcard-js">
+(function(){
+ const sb=window.hxSupabase;
+ const ADMIN_EMAIL='joaopedrodega2@gmail.com';
+ const $=id=>document.getElementById(id);
+ window.gcOpen=async()=>{ $('gcOverlay').classList.add('open'); await gcRefresh(); };
+ window.gcClose=()=> $('gcOverlay').classList.remove('open');
+ async function gcUser(){
+  let {data:{user}}=await sb.auth.getUser();
+  if(user) return user;
+  const r=await sb.auth.signInAnonymously();
+  if(r.error){
+   console.warn('Sessão anônima indisponível:',r.error.message);
+   return null;
+  }
+  return r.data?.user||null;
+ }
+ function brl2(v){return Number(v||0).toLocaleString('pt-BR',{style:'currency',currency:'BRL'});}
+ window.gcRefresh=async()=>{
+  const user=await gcUser();
+  if(!user){$('gcBalance').textContent='Entre na sua conta para consultar o saldo.';$('gcAdmin').style.display='none';return;}
+  const {data,error}=await sb.rpc('get_wallet_balance');
+  if(error){$('gcBalance').textContent='Configure o sistema de Gift Cards no Supabase.';}else $('gcBalance').textContent=brl2(data||0);
+  const admin=(user.email||'').toLowerCase()===ADMIN_EMAIL.toLowerCase();
+  $('gcAdmin').style.display=admin?'block':'none';
+  if(admin) gcLoadAdmin();
+ };
+ window.gcRedeem=async()=>{
+  const user=await gcUser();
+  if(!user){$('gcMsg').innerHTML='<p class="gc-error">A loja não conseguiu criar a sessão automática. Ative <b>Anonymous Sign-Ins</b> no Supabase em Authentication → Providers. Você não precisará fazer login.</p>';return;}
+  const code=$('gcCode').value.trim().toUpperCase(); if(!code)return;
+  const {data,error}=await sb.rpc('redeem_gift_card',{p_code:code});
+  if(error){$('gcMsg').innerHTML='<p class="gc-error">'+escgc(error.message)+'</p>';return;}
+  $('gcMsg').innerHTML='<p class="gc-success">🎉 Gift Card resgatado! Saldo adicionado: '+brl2(data||0)+'</p>';
+  await gcRefresh();
+ };
+ window.gcCreate=async()=>{
+  const user=await gcUser();
+  if(!user || (user.email||'').toLowerCase()!==ADMIN_EMAIL.toLowerCase()){alert('Acesso restrito ao administrador.');return;}
+  const code=$('gcNewCode').value.trim().toUpperCase().replace(/[^A-Z0-9_-]/g,'');
+  const value=Number($('gcNewValue').value);
+  if(!code||!value||value<=0){$('gcAdminMsg').innerHTML='<p class="gc-error">Informe um código e um valor válido.</p>';return;}
+  const {error}=await sb.rpc('create_gift_card',{p_code:code,p_value:value});
+  if(error){$('gcAdminMsg').innerHTML='<p class="gc-error">'+escgc(error.message)+'</p>';return;}
+  $('gcAdminMsg').innerHTML='<p class="gc-success">Código '+escgc(code)+' criado com '+brl2(value)+'.</p>';
+  $('gcNewCode').value='';$('gcNewValue').value='';await gcLoadAdmin();
+ };
+ async function gcLoadAdmin(){
+  const {data,error}=await sb.rpc('admin_list_gift_cards');
+  if(error){$('gcAdminList').innerHTML='<p class="gc-error">Configure as tabelas/RLS do Supabase.</p>';return;}
+  $('gcAdminList').innerHTML=(data||[]).map(x=>'<div class="gc-card"><b>'+escgc(x.code)+'</b> — '+brl2(x.value)+'<br><span class="gc-muted">'+(x.redeemed?'Resgatado':'Disponível')+'</span></div>').join('')||'<p class="gc-muted">Nenhum código criado.</p>';
+ }
+ function escgc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+ window.addEventListener('DOMContentLoaded',()=>setTimeout(gcRefresh,500));
 })();
 </script>
 </body>
