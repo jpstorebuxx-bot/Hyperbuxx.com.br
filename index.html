@@ -450,7 +450,7 @@ async function payWithBalance(){
  const status=document.getElementById("balancePayStatus");
  if(status) status.textContent="Verificando saldo...";
  const user=await gcUser();
- if(!user){if(status) status.textContent="Não foi possível criar sua sessão automática.";return;}
+ if(!user){if(status) status.textContent="Não foi possível iniciar a sessão automática. Verifique se Anonymous Sign-Ins está ativado.";return;}
  const {data:bal,error:be}=await sb.rpc('get_wallet_balance');
  if(be){if(status) status.textContent="Não foi possível consultar o saldo.";return;}
  const balance=Number(bal||0), total=Number(window.orderTotal||0);
@@ -588,14 +588,21 @@ renderProducts();updateCart();
  window.gcOpen=async()=>{ $('gcOverlay').classList.add('open'); await gcRefresh(); };
  window.gcClose=()=> $('gcOverlay').classList.remove('open');
  async function gcUser(){
-  let {data:{user}}=await sb.auth.getUser();
-  if(user) return user;
-  const r=await sb.auth.signInAnonymously();
-  if(r.error){
-   console.warn('Sessão anônima indisponível:',r.error.message);
+  try{
+   const sessionReq=sb.auth.getSession();
+   const timeout=new Promise((_,rej)=>setTimeout(()=>rej(new Error('Tempo esgotado ao iniciar a sessão.')),8000));
+   let {data}=await Promise.race([sessionReq,timeout]);
+   if(data?.session?.user) return data.session.user;
+   const r=await sb.auth.signInAnonymously();
+   if(r.error){
+    console.warn('Sessão anônima indisponível:',r.error.message);
+    return null;
+   }
+   return r.data?.user||null;
+  }catch(e){
+   console.warn('Falha ao iniciar sessão anônima:',e);
    return null;
   }
-  return r.data?.user||null;
  }
  function brl2(v){return Number(v||0).toLocaleString('pt-BR',{style:'currency',currency:'BRL'});}
  window.gcRefresh=async()=>{
