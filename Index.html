@@ -6,316 +6,176 @@
 <title>HyperBuxx — Blox Fruits, Jujutsu, Robux e Brainrot</title>
 <meta name="description" content="HyperBuxx — loja de produtos digitais para Roblox.">
 <style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,Helvetica,sans-serif;background:radial-gradient(circle at 50% -10%,#193c72 0,#090d18 30%,#03050b 75%);color:#fff;min-height:100vh}
-button{font:inherit}
-.top{position:sticky;top:0;z-index:1000;background:#050914ee;backdrop-filter:blur(12px);border-bottom:1px solid #19304e}
-.nav{max-width:1200px;margin:auto;display:flex;align-items:center;gap:12px;padding:12px 16px}
-.logo{font-size:24px;font-weight:900;color:#36a3ff;text-shadow:0 0 18px #168cff77;flex:1;text-align:center}
-.iconbtn{background:#0d1727;border:1px solid #284463;color:#fff;border-radius:12px;padding:9px 12px;cursor:pointer}
-.cartbtn{position:relative}
-.count{position:absolute;right:-5px;top:-7px;background:#ff315d;color:#fff;border-radius:999px;min-width:19px;height:19px;font-size:11px;display:grid;place-items:center;font-weight:900}
-.search{display:none;max-width:1200px;margin:auto;padding:0 16px 12px}
-.search input{width:100%;padding:12px;border-radius:12px;border:1px solid #294665;background:#0b1524;color:#fff;outline:none}
-main{max-width:1200px;margin:auto;padding:0 16px 40px}
-.hero{margin:20px 0;padding:34px 24px;border-radius:22px;background:linear-gradient(135deg,#07182d,#151035);border:1px solid #254c76;box-shadow:0 15px 50px #0007}
-.tag{display:inline-block;background:#0f3760;border:1px solid #267cc1;border-radius:999px;padding:8px 12px;font-size:12px;font-weight:800;color:#7bc8ff}
-.hero h1{font-size:42px;margin:14px 0 8px}
-.hero p{color:#b7c8dc;line-height:1.5}
-h2{margin-top:30px}
-.menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
-.menu-card{background:linear-gradient(145deg,#0b1728,#09101d);border:1px solid #213c5b;border-radius:16px;padding:17px;text-align:center;cursor:pointer;transition:.2s}
-.menu-card:hover{transform:translateY(-2px);border-color:#298eff}
-.menu-card .emoji{font-size:32px}
-.menu-card h3{font-size:14px;margin:9px 0}
-.menu-card span{font-size:11px;color:#8ea5be}
-.section-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
-.clear{background:#101c2d;border:1px solid #2b4969;color:#b9d8f7;border-radius:10px;padding:8px 12px;cursor:pointer}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:14px}
-.product{position:relative;background:linear-gradient(145deg,#0b1626,#070d17);border:1px solid #203b59;border-radius:17px;padding:15px;cursor:pointer;overflow:hidden}
-.product:hover{border-color:#298eff;box-shadow:0 10px 30px #0008}
-.badge{position:absolute;left:10px;top:10px;background:#12375a;color:#7cc9ff;border:1px solid #286fa8;border-radius:999px;padding:5px 8px;font-size:9px;font-weight:900}
-.pic{height:105px;display:grid;place-items:center;font-size:58px}
-.product h3{font-size:14px;line-height:1.35;min-height:55px}
-.caption{font-size:11px;color:#8fa6bf;line-height:1.4;min-height:32px}
-.stock{font-size:10px;color:#54d38a;margin:8px 0}
-.price{font-size:20px;font-weight:900}
-.pixsmall{font-size:10px;color:#8398b0;margin-top:2px}
-.add{width:100%;margin-top:12px;background:linear-gradient(90deg,#147cf5,#6d3cff);border:0;color:#fff;border-radius:11px;padding:10px;font-weight:800;cursor:pointer}
-.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:35px}
-.feature{background:#091423;border:1px solid #203a57;border-radius:15px;padding:15px;display:flex;flex-direction:column;gap:5px}
-.feature span{font-size:11px;color:#8da4bc}
-footer{text-align:center;padding:25px;color:#667b94;font-size:12px;border-top:1px solid #152941}
-
-.modal{position:fixed;inset:0;background:#000b;display:none;place-items:center;z-index:1200;padding:18px}
-.modal.open{display:grid}
-.modalbox{width:min(440px,100%);max-height:92vh;overflow:auto;background:#09111f;border:1px solid #2b4569;border-radius:20px;padding:20px;position:relative}
-.close{position:absolute;right:12px;top:10px;background:#142238;border:0;color:#fff;border-radius:10px;padding:7px 10px;cursor:pointer}
-.qr{background:#fff;padding:12px;border-radius:12px;width:240px;height:240px;margin:18px auto;display:grid;place-items:center}
-.qr img{width:100%;height:100%}
-.copy{width:100%;padding:11px;border:1px solid #2d4565;background:#101a2a;color:#fff;border-radius:10px;cursor:pointer}
-.status{margin-top:12px;background:#111c2d;border:1px solid #284363;border-radius:11px;padding:11px;color:#b8c9de;font-size:13px}
-.warning{color:#ffca6b;font-size:12px;line-height:1.4}
-
-.cart-modal{position:fixed;inset:0;background:#000c;display:none;place-items:center;z-index:1300;padding:16px}
-.cart-modal.open{display:grid}
-.cartbox{width:min(560px,100%);max-height:90vh;overflow:auto;background:#07101d;border:1px solid #344d72;border-radius:20px;padding:18px}
-.cart-item{display:flex;gap:10px;align-items:center;border-bottom:1px solid #1b314a;padding:12px 0}
-.cart-item-main{flex:1}
-.qty{display:flex;gap:6px;align-items:center}
-.qty button{background:#14263d;border:1px solid #294665;color:#fff;border-radius:8px;width:30px;height:30px;cursor:pointer}
-.remove{background:#351626;border:1px solid #71344d;color:#ff9ab4;border-radius:8px;padding:7px;cursor:pointer}
-.cart-total{font-size:21px;font-weight:900;text-align:right;padding:16px 0}
-.checkout{width:100%;padding:13px;background:linear-gradient(90deg,#168cff,#7442ff);border:0;color:#fff;border-radius:12px;font-weight:900;cursor:pointer;margin-top:8px}
-.gift-pay{width:100%;padding:12px;background:#102b20;border:1px solid #2e9a63;color:#7dffb0;border-radius:12px;font-weight:900;cursor:pointer;margin-top:8px}
-.empty{padding:30px;text-align:center;color:#7890aa}
-
-.chat-modal{position:fixed;inset:0;background:#000c;display:none;place-items:center;z-index:1400;padding:16px}
-.chat-modal.open{display:grid}
-.chatbox{width:min(620px,100%);height:min(760px,92vh);background:#07101d;border:1px solid #344d72;border-radius:20px;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 25px 80px #000c}
-.chat-head{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;background:linear-gradient(90deg,#101d35,#21133b);border-bottom:1px solid #2b4160}
-.chat-head strong{font-size:18px}
-.chat-sub{font-size:11px;color:#8fa4be;margin-top:3px}
-.chat-body{flex:1;overflow:auto;padding:16px;background:radial-gradient(circle at 80% 10%,#20104a55,#07101d 45%)}
-.bubble{max-width:82%;padding:11px 13px;border-radius:14px;margin:8px 0;line-height:1.45;font-size:13px;white-space:pre-wrap}
-.bubble.store{background:#101c2f;border:1px solid #294365}
-.bubble.user{background:linear-gradient(90deg,#168cff,#7b45ff);margin-left:auto}
-.order-card{background:#0b1626;border:1px solid #294365;border-radius:14px;padding:13px;margin:12px 0}
-.order-card h3{margin:0 0 8px;font-size:14px}
-.order-line{display:flex;justify-content:space-between;gap:10px;padding:5px 0;color:#c5d2e3;font-size:12px}
-.chat-pay{margin-top:10px;padding:12px;border-radius:11px;background:#0e2136;border:1px solid #2c5279}
-.chat-qr{width:150px;height:150px;background:#fff;padding:7px;border-radius:10px;display:block;margin:10px auto}
-.chat-compose{display:flex;gap:8px;padding:12px;border-top:1px solid #263d59}
-.chat-compose input{flex:1;background:#0d1828;border:1px solid #294665;color:#fff;border-radius:10px;padding:10px}
-.chat-compose button{background:#168cff;border:0;color:#fff;border-radius:10px;padding:10px 14px;font-weight:800}
-
-.gift-modal{position:fixed;inset:0;background:#000c;display:none;place-items:center;z-index:1600;padding:16px}
-.gift-modal.open{display:grid}
-.gift-box{width:min(440px,100%);max-height:90vh;overflow:auto;background:#08111f;border:1px solid #315275;border-radius:20px;padding:20px}
-.gift-input{width:100%;padding:12px;border-radius:10px;background:#0e1929;color:#fff;border:1px solid #2b4868;margin:8px 0}
-.gift-btn{width:100%;padding:12px;border:0;border-radius:11px;background:linear-gradient(90deg,#168cff,#7141ff);color:#fff;font-weight:900;cursor:pointer}
-.gc-success{background:#102c1d;border:1px solid #28794b;padding:10px;border-radius:10px;color:#82ffb1}
-.gc-error{background:#321421;border:1px solid #713047;padding:10px;border-radius:10px;color:#ff9db8}
-.gc-muted{color:#8298b0;font-size:11px}
-.gc-balance{background:#0e2135;border:1px solid #2c5279;border-radius:12px;padding:12px;text-align:center;margin:10px 0;font-size:20px;font-weight:900}
-
-.hx-account{position:fixed;right:16px;bottom:16px;z-index:5000;background:#1769ff;color:white;border:0;border-radius:14px;padding:12px 16px;font-weight:800;box-shadow:0 8px 28px #0008}
-.hx-overlay{display:none;position:fixed;inset:0;z-index:6000;background:#000b;align-items:center;justify-content:center;padding:16px}
-.hx-box{width:min(520px,100%);max-height:90vh;overflow:auto;background:#0b1424;border:1px solid #294665;border-radius:18px;padding:18px}
-.hx-box input,.hx-box textarea{width:100%;padding:11px;background:#101b2b;color:#fff;border:1px solid #2a4665;border-radius:10px;margin:5px 0}
-.hx-box button{padding:10px 13px;border-radius:10px;border:1px solid #315171;background:#13243a;color:#fff;cursor:pointer}
-.hxMsg{background:#101d2e;border:1px solid #263f5d;border-radius:11px;padding:10px;margin:7px 0;font-size:13px}
-.hxSmall{font-size:10px;color:#71869e;margin-top:4px}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:
+radial-gradient(circle at 50% -10%,#193c72 0,#090d18 30%,#03050b 75%);color:#fff;min-height:100vh}
+button{font:inherit}a{text-decoration:none;color:inherit}
+.top{position:sticky;top:0;z-index:50;background:#070914eF;border-bottom:1px solid #24324e;backdrop-filter:blur(14px)}
+.nav{max-width:1180px;margin:auto;height:76px;display:flex;align-items:center;gap:14px;padding:10px 18px}
+.iconbtn{width:48px;height:48px;border:1px solid #263858;background:#0b1120;border-radius:14px;color:#fff;display:grid;place-items:center;cursor:pointer;font-size:24px}
+.logo{font-size:27px;font-weight:1000;letter-spacing:3px;margin:auto;background:linear-gradient(90deg,#48a8ff,#9b5cff);-webkit-background-clip:text;color:transparent}
+.cartbtn{position:relative}.count{position:absolute;right:-5px;top:-6px;background:#8b35ff;color:#fff;border-radius:999px;min-width:21px;height:21px;font-size:12px;display:grid;place-items:center;font-weight:900}
+.search{display:none;max-width:1180px;margin:auto;padding:0 18px 12px}.search input{width:100%;padding:13px 15px;border-radius:13px;border:1px solid #263858;background:#080d19;color:white;outline:none}
+main{max-width:1180px;margin:auto;padding:18px}
+.hero{height:230px;border:1px solid #35496d;border-radius:24px;background:
+linear-gradient(120deg,#07162dDD,#10112bEE),radial-gradient(circle at 75% 20%,#9d28ff,#0b1f42);
+display:flex;align-items:center;padding:28px;overflow:hidden;position:relative}
+.hero:after{content:"HyperBuxx";position:absolute;right:-20px;bottom:-45px;font-size:100px;font-weight:1000;color:#ffffff08;transform:rotate(-8deg)}
+.hero h1{font-size:clamp(34px,6vw,65px);margin:0 0 8px;letter-spacing:2px}.hero p{color:#b9c8dd;max-width:560px}.hero .tag{display:inline-block;background:#172c4c;border:1px solid #345b8d;padding:8px 12px;border-radius:999px;font-weight:800;font-size:13px}
+h2{font-size:28px;margin:30px 0 15px}.menu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.menu-card{border:1px solid #33486c;border-radius:18px;min-height:145px;padding:20px;cursor:pointer;position:relative;overflow:hidden;
+background:linear-gradient(135deg,#0c1d38,#17102e);transition:.2s}.menu-card:hover{transform:translateY(-3px);border-color:#65aaff}
+.menu-card:nth-child(2){background:linear-gradient(135deg,#132b4b,#26104c)}.menu-card:nth-child(3){background:linear-gradient(135deg,#0b2441,#241044)}.menu-card:nth-child(4){background:linear-gradient(135deg,#10213b,#31124b)}
+.menu-card .emoji{font-size:42px}.menu-card h3{font-size:22px;margin:8px 0}.menu-card span{color:#aebdd0;font-size:13px}
+.section-head{display:flex;align-items:center;justify-content:space-between;margin-top:34px}.section-head h2{margin:0}.clear{background:none;border:0;color:#8dc7ff;cursor:pointer}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin-top:15px}.product{cursor:pointer;background:linear-gradient(180deg,#0d1728,#070c16);border:1px solid #243a5c;border-radius:17px;padding:13px;display:flex;flex-direction:column;min-height:245px;position:relative}
+.badge{position:absolute;left:10px;top:10px;background:#7338ff;padding:5px 8px;border-radius:8px;font-size:10px;font-weight:900}.pic{height:95px;border-radius:13px;background:linear-gradient(135deg,#1c4c82,#31115e);display:grid;place-items:center;font-size:44px;margin-bottom:12px}.product h3{font-size:14px;line-height:1.3;margin:0 0 5px}.caption{font-size:10.5px;line-height:1.35;color:#aebdd0;margin:0 0 7px;min-height:29px}.stock{font-size:11px;color:#55e29b}.price{font-size:22px;font-weight:1000;margin-top:auto}.pixsmall{font-size:10px;color:#8194ac}.add{margin-top:10px;border:0;border-radius:11px;padding:11px;background:linear-gradient(90deg,#168cff,#7b45ff);color:white;font-weight:900;cursor:pointer}.add:hover{filter:brightness(1.12)}.product:hover{transform:translateY(-3px);border-color:#65aaff}.details-icon{font-size:48px;margin:4px 0 12px}.details-price{font-size:26px;font-weight:1000;margin:14px 0 4px}.details-desc{color:#b7c8dc;line-height:1.55;font-size:14px}.details-stock{color:#55e29b;font-weight:800;font-size:12px}.details-actions{display:flex;gap:10px;margin-top:18px}.details-actions button{flex:1;padding:12px;border-radius:11px;border:0;font-weight:900;cursor:pointer}.details-add{background:linear-gradient(90deg,#168cff,#7b45ff);color:#fff}.details-close{background:#101a2a;color:#fff;border:1px solid #2d4565!important}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:32px 0}.feature{background:#091221;border:1px solid #203653;border-radius:15px;padding:16px}.feature b{display:block;margin-bottom:5px}.feature span{color:#91a5bf;font-size:13px}
+.drawer{position:fixed;right:-420px;top:0;width:min(410px,100%);height:100%;background:#070c16;border-left:1px solid #263c5e;z-index:100;padding:20px;transition:.25s;box-shadow:-20px 0 60px #0009;overflow:auto}.drawer.open{right:0}.drawer-head{display:flex;justify-content:space-between;align-items:center}.drawer h2{margin:0}.close{background:#111a29;border:1px solid #2b4264;color:#fff;border-radius:10px;width:40px;height:40px;cursor:pointer}.cart-item{display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid #1c2a40;padding:14px 0}.remove{background:none;border:0;color:#ff6b7a;cursor:pointer}.total{font-size:24px;font-weight:1000;margin:20px 0}.pay{width:100%;padding:14px;border:0;border-radius:13px;background:linear-gradient(90deg,#1d9aff,#7546ff);color:white;font-weight:1000;cursor:pointer}.empty{color:#879ab1;text-align:center;padding:40px 10px}
+.modal{position:fixed;inset:0;background:#000b;display:none;place-items:center;z-index:120;padding:18px}.modal.open{display:grid}.modalbox{width:min(440px,100%);background:#09111f;border:1px solid #2b4569;border-radius:20px;padding:20px;position:relative}.modalbox h2{margin:0 0 10px}.qr{background:#fff;padding:12px;border-radius:12px;width:240px;height:240px;margin:18px auto;display:grid;place-items:center}.qr img{width:100%;height:100%;image-rendering:auto}.copy{width:100%;padding:11px;border:1px solid #2d4565;background:#101a2a;color:#fff;border-radius:10px;cursor:pointer}.status{margin-top:12px;background:#111c2d;border:1px solid #284363;border-radius:11px;padding:11px;color:#b8c9de;font-size:13px}.warning{color:#ffca6b;font-size:12px;line-height:1.4}
+.chat-modal{position:fixed;inset:0;background:#000c;display:none;place-items:center;z-index:140;padding:16px}.chat-modal.open{display:grid}.chatbox{width:min(620px,100%);height:min(760px,92vh);background:#07101d;border:1px solid #344d72;border-radius:20px;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 25px 80px #000c}.chat-head{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;background:linear-gradient(90deg,#101d35,#21133b);border-bottom:1px solid #2b4160}.chat-head strong{font-size:18px}.chat-sub{font-size:11px;color:#8fa4be;margin-top:3px}.chat-body{flex:1;overflow:auto;padding:16px;background:radial-gradient(circle at 80% 10%,#20104a55,#07101d 45%)}.bubble{max-width:82%;padding:11px 13px;border-radius:14px;margin:8px 0;line-height:1.45;font-size:13px;white-space:pre-wrap}.bubble.store{background:#101c2f;border:1px solid #294365}.bubble.user{background:linear-gradient(90deg,#168cff,#7b45ff);margin-left:auto}.order-card{background:#0b1626;border:1px solid #294365;border-radius:14px;padding:13px;margin:12px 0}.order-card h3{margin:0 0 8px;font-size:14px}.order-line{display:flex;justify-content:space-between;gap:10px;padding:5px 0;color:#c5d2e3;font-size:12px}.chat-pay{margin-top:10px;padding:12px;border-radius:11px;background:#0e2136;border:1px solid #2c5279}.chat-qr{width:150px;height:150px;background:#fff;padding:7px;border-radius:10px;display:block;margin:10px auto}.chat-compose{display:flex;gap:8px;padding:12px;border-top:1px solid #263b59;background:#08111f}.chat-compose input{flex:1;min-width:0;padding:12px;border-radius:11px;border:1px solid #2a4162;background:#0c1727;color:#fff;outline:none}.chat-compose button{padding:12px 15px;border:0;border-radius:11px;background:linear-gradient(90deg,#168cff,#7b45ff);color:#fff;font-weight:900;cursor:pointer}.chat-actions{display:flex;gap:8px;padding:0 12px 12px;background:#08111f}.chat-actions button{flex:1;padding:10px;border-radius:10px;border:1px solid #2b4264;background:#101a2a;color:#fff;cursor:pointer;font-weight:800}.chat-actions .primary{background:linear-gradient(90deg,#168cff,#7b45ff);border:0}footer{border-top:1px solid #18283f;color:#8194ad;text-align:center;padding:28px;margin-top:35px}
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}.features{grid-template-columns:1fr}.hero{height:205px}}
+@media(max-width:520px){.nav{height:68px}.logo{font-size:21px}.hero{padding:20px;height:190px}.hero h1{font-size:34px}.grid{gap:9px}.product{min-height:225px;padding:10px}.pic{height:78px;font-size:35px}.menu-card{min-height:130px;padding:14px}.menu-card h3{font-size:18px}h2{font-size:23px}}
 </style>
-
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 window.HYPERBUXX_SUPABASE_URL='https://qubcqwtmomrtewwfodho.supabase.co';
 window.HYPERBUXX_SUPABASE_KEY='sb_publishable_-dWXcJVseWksqKN5YKgiRg_BI92MBkw';
 window.hxSupabase=window.supabase.createClient(window.HYPERBUXX_SUPABASE_URL,window.HYPERBUXX_SUPABASE_KEY);
 </script>
+
+<style id="giftcard-style">
+.gc-launch{position:fixed;left:16px;bottom:16px;z-index:5000;background:linear-gradient(90deg,#168cff,#7b45ff);color:#fff;border:0;border-radius:14px;padding:12px 16px;font-weight:900;box-shadow:0 8px 28px #0008;cursor:pointer}
+.gc-overlay{display:none;position:fixed;inset:0;z-index:7000;background:#000c;align-items:center;justify-content:center;padding:16px}.gc-overlay.open{display:flex}
+.gc-box{width:min(560px,100%);max-height:90vh;overflow:auto;background:#0b1424;color:#fff;border:1px solid #31517d;border-radius:20px;padding:20px}.gc-box input,.gc-box select{width:100%;box-sizing:border-box;padding:12px;margin:6px 0;border-radius:10px;border:1px solid #30476c;background:#07101d;color:#fff}.gc-box button{padding:10px 14px;border:0;border-radius:10px;background:#1769ff;color:#fff;font-weight:800;margin:4px;cursor:pointer}.gc-close{float:right;background:#273650!important}.gc-card{background:#101e33;border:1px solid #2c4568;border-radius:12px;padding:11px;margin:8px 0}.gc-muted{opacity:.75;font-size:12px}.gc-success{color:#55e29b}.gc-error{color:#ff7c8a}.gc-admin{border-top:1px solid #29415f;margin-top:15px;padding-top:15px}
+</style>
 </head>
-
 <body>
-
 <header class="top">
   <div class="nav">
     <button class="iconbtn" onclick="toggleMenu()" aria-label="Menu">☰</button>
-    <div class="logo" onclick="openAdmin()" style="cursor:pointer">HyperBuxx</div>
+    <div class="logo">HyperBuxx</div>
     <button class="iconbtn" onclick="toggleSearch()" aria-label="Pesquisar">⌕</button>
     <button class="iconbtn cartbtn" onclick="openCart()" aria-label="Carrinho">🛒<span class="count" id="count">0</span></button>
   </div>
-  <div class="search" id="search">
-    <input id="searchInput" oninput="renderProducts()" placeholder="Pesquisar produtos...">
-  </div>
+  <div class="search" id="search"><input id="searchInput" oninput="renderProducts()" placeholder="Pesquisar produtos..."></div>
 </header>
 
-<main>
+<main><div style="margin:18px 0;padding:14px 16px;border-radius:14px;background:#111;color:#fff;text-align:center;font-weight:700">🕐 Horário de funcionamento: 12:20 às 21:00. Compras feitas fora do horário serão atendidas quando o horário de funcionamento começar.</div>
 
-<div style="margin:18px 0;padding:14px 16px;border-radius:14px;background:#111;color:#fff;text-align:center;font-weight:700">
-🕐 Horário de funcionamento: 12:20 às 21:00. Compras feitas fora do horário serão atendidas quando o horário de funcionamento começar.
-</div>
+  <section class="hero">
+    <div>
+      <span class="tag">⚡ ENTREGA RÁPIDA • PIX • LOJA CONFIÁVEL</span>
+      <h1>HyperBuxx</h1>
+      <p>Contas, itens, gamepasses, Robux e muito mais para seus jogos favoritos.</p>
+      <p style="margin-top:12px;font-weight:800">⭐ Loja confiável • 40 vendas realizadas • Só comentários positivos</p>
+    </div>
+  </section>
 
-<section class="hero">
-  <div>
-    <span class="tag">⚡ ENTREGA RÁPIDA • PIX • LOJA CONFIÁVEL</span>
-    <h1>HyperBuxx</h1>
-    <p>Contas, itens, gamepasses, Robux e muito mais para seus jogos favoritos.</p>
-    <p style="margin-top:12px;font-weight:800">⭐ Loja confiável • 40 vendas realizadas • Só comentários positivos</p>
-  </div>
-</section>
+  <h2 id="categorias">Escolha uma categoria</h2>
+  <section class="menu-grid">
+    <div class="menu-card" onclick="selectCategory('blox')"><div class="emoji">🍎</div><h3>BLOX FRUITS</h3><span>Contas, frutas, V4 e itens</span></div>
+    <div class="menu-card" onclick="selectCategory('jujutsu')"><div class="emoji">⚔️</div><h3>JUJUTSU SHENANIGANS</h3><span>Emotes e itens</span></div>
+    <div class="menu-card" onclick="selectCategory('robux')"><div class="emoji">💰</div><h3>ROBUX</h3><span>Pacotes de Robux</span></div>
+    <div class="menu-card" onclick="selectCategory('brainrot')"><div class="emoji">🧠</div><h3>ROUBE UM BRAINROT</h3><span>Itens e novidades</span></div>
+    <div class="menu-card" onclick="selectCategory('fuga')"><div class="emoji">⌨️</div><h3>FUGA DE TECLADO</h3><span>Itens de velocidade e Speed</span></div>
+    <div class="menu-card" onclick="selectCategory('mm2')"><div class="emoji">🔪</div><h3>MURDER MYSTERY 2</h3><span>Sets, facas e itens exclusivos</span></div>
+    <div class="menu-card" onclick="selectCategory('animalhospital')"><div class="emoji">🏥</div><h3>HOSPITAL DE ANIMAIS</h3><span>Contas, moedas e itens</span></div>
+    <div class="menu-card" onclick="selectCategory('grow2')"><div class="emoji">🌱</div><h3>CRESÇA UM JARDIM 2</h3><span>Sementes, pets e itens</span></div>
+    <div class="menu-card" onclick="selectCategory('adopt')"><div class="emoji">🐶</div><h3>ADOPT ME</h3><span>Contas, pets, ovos e poções</span></div>
+    <div class="menu-card" onclick="selectCategory('brookhaven')"><div class="emoji">🏠</div><h3>BROOKHAVEN</h3><span>Gamepasses e melhorias</span></div>
+    <div class="menu-card" onclick="selectCategory('rivals')"><div class="emoji">🎯</div><h3>RIVALS</h3><span>Pacotes e armas</span></div>
+    <div class="menu-card" onclick="selectCategory('sailor')"><div class="emoji">⚓</div><h3>SAILOR PIECE</h3><span>Contas, sets e baús</span></div>
+    <div class="menu-card" onclick="selectCategory('haze')"><div class="emoji">🌫️</div><h3>HAZE SEAS</h3><span>Frutas, passes e itens</span></div>
+    <div class="menu-card" onclick="selectCategory('nights99')"><div class="emoji">🌲</div><h3>99 NOITES NA FLORESTA</h3><span>Diamantes e contas</span></div>
+    <div class="menu-card" onclick="selectCategory('kick')"><div class="emoji">🍀</div><h3>KICK A LUCKY BLOCK</h3><span>Brainrots e itens exclusivos</span></div>
+  </section>
 
-<h2 id="categorias">Escolha uma categoria</h2>
+  <div class="section-head"><h2 id="productsTitle">Produtos populares</h2><button class="clear" onclick="selectCategory('all')">Ver todos</button></div>
+  <section class="grid" id="products"></section>
 
-<section class="menu-grid">
-  <div class="menu-card" onclick="selectCategory('blox')"><div class="emoji">🍎</div><h3>BLOX FRUITS</h3><span>Contas, frutas, V4 e itens</span></div>
-  <div class="menu-card" onclick="selectCategory('jujutsu')"><div class="emoji">⚔️</div><h3>JUJUTSU SHENANIGANS</h3><span>Emotes e itens</span></div>
-  <div class="menu-card" onclick="selectCategory('robux')"><div class="emoji">💰</div><h3>ROBUX</h3><span>Pacotes de Robux</span></div>
-  <div class="menu-card" onclick="selectCategory('brainrot')"><div class="emoji">🧠</div><h3>ROUBE UM BRAINROT</h3><span>Itens e novidades</span></div>
-  <div class="menu-card" onclick="selectCategory('fuga')"><div class="emoji">⌨️</div><h3>FUGA DE TECLADO</h3><span>Itens de velocidade e Speed</span></div>
-  <div class="menu-card" onclick="selectCategory('mm2')"><div class="emoji">🔪</div><h3>MURDER MYSTERY 2</h3><span>Sets, facas e itens exclusivos</span></div>
-  <div class="menu-card" onclick="selectCategory('animalhospital')"><div class="emoji">🏥</div><h3>HOSPITAL DE ANIMAIS</h3><span>Contas, moedas e itens</span></div>
-  <div class="menu-card" onclick="selectCategory('grow2')"><div class="emoji">🌱</div><h3>CRESÇA UM JARDIM 2</h3><span>Sementes, pets e itens</span></div>
-  <div class="menu-card" onclick="selectCategory('adopt')"><div class="emoji">🐶</div><h3>ADOPT ME</h3><span>Contas, pets, ovos e poções</span></div>
-  <div class="menu-card" onclick="selectCategory('brookhaven')"><div class="emoji">🏠</div><h3>BROOKHAVEN</h3><span>Gamepasses e melhorias</span></div>
-  <div class="menu-card" onclick="selectCategory('rivals')"><div class="emoji">🎯</div><h3>RIVALS</h3><span>Pacotes e armas</span></div>
-  <div class="menu-card" onclick="selectCategory('sailor')"><div class="emoji">⚓</div><h3>SAILOR PIECE</h3><span>Contas, sets e baús</span></div>
-  <div class="menu-card" onclick="selectCategory('haze')"><div class="emoji">🌫️</div><h3>HAZE SEAS</h3><span>Frutas, passes e itens</span></div>
-  <div class="menu-card" onclick="selectCategory('nights99')"><div class="emoji">🌲</div><h3>99 NOITES NA FLORESTA</h3><span>Diamantes e contas</span></div>
-  <div class="menu-card" onclick="selectCategory('kick')"><div class="emoji">🍀</div><h3>KICK A LUCKY BLOCK</h3><span>Brainrots e itens exclusivos</span></div>
-</section>
-
-<div class="section-head">
-  <h2 id="productsTitle">Produtos populares</h2>
-  <button class="clear" onclick="selectCategory('all')">Ver todos</button>
-</div>
-
-<section class="grid" id="products"></section>
-
-<section class="features">
-  <div class="feature">⚡ <b>Entrega rápida</b><span>Consulte o prazo informado no produto.</span></div>
-  <div class="feature">🛒 <b>Carrinho inteligente</b><span>Adicione vários produtos e finalize pelo chat.</span></div>
-  <div class="feature">💬 <b>Suporte</b><span>Atendimento direto pelo chat da HyperBuxx.</span></div>
-  <div class="feature">⭐ <b>Clientes satisfeitos</b><span>40 vendas e comentários positivos.</span></div>
-</section>
-
+  <section class="features">
+    <div class="feature">⚡ <b>Entrega rápida</b><span>Consulte o prazo informado no produto.</span></div>
+    <div class="feature">🛒 <b>Carrinho inteligente</b><span>Adicione vários produtos e finalize pelo chat.</span></div>
+    <div class="feature">💬 <b>Suporte</b><span>Atendimento direto pelo chat da HyperBuxx.</span></div>
+    <div class="feature">⭐ <b>Clientes satisfeitos</b><span>40 vendas e comentários positivos.</span></div>
+  </section>
 </main>
 
 <footer>© 2026 HyperBuxx • Produtos digitais</footer>
 
-<div class="modal" id="detailsModal">
+<aside class="drawer" id="drawer">
+  <div class="drawer-head"><h2>Seu carrinho</h2><button class="close" onclick="closeCart()">×</button></div>
+  <div id="cartItems"></div>
+  <div class="total">Total: <span id="total">R$ 0,00</span></div>
+  <button class="pay" onclick="pay()">🛒 FINALIZAR COMPRA</button>
+  </aside>
+
+<div class="modal" id="detailsModal" onclick="if(event.target===this)closeDetails()">
   <div class="modalbox">
-    <button class="close" onclick="closeDetails()">✕</button>
-    <div id="detailsIcon" style="font-size:60px;text-align:center"></div>
-    <h2 id="detailsTitle"></h2>
-    <p id="detailsDesc" style="color:#a9bad0;line-height:1.5"></p>
-    <div id="detailsPrice" class="price"></div>
-    <button id="detailsAdd" class="add">Adicionar ao carrinho</button>
+    <button class="close" style="position:absolute;right:15px;top:15px" onclick="closeDetails()">×</button>
+    <div id="detailsIcon" class="details-icon">📦</div>
+    <h2 id="detailsTitle">Produto</h2>
+    <div id="detailsStock" class="details-stock">● Em estoque</div>
+    <div id="detailsDesc" class="details-desc"></div>
+    <div id="detailsPrice" class="details-price"></div>
+    <div class="pixsmall">À vista no Pix</div>
+    <div class="details-actions">
+      <button class="details-close" onclick="closeDetails()">Fechar</button>
+      <button class="details-add" id="detailsAdd">Adicionar ao carrinho</button>
+    </div>
   </div>
 </div>
 
-<div class="cart-modal" id="cartModal">
-  <div class="cartbox">
-    <button class="close" onclick="closeCart()">✕</button>
-    <h2>🛒 Seu carrinho</h2>
-    <div id="cartItems"></div>
-    <div class="cart-total" id="cartTotal">R$ 0,00</div>
-    <button class="gift-pay" onclick="openGiftPay()">💰 Pagar com saldo do Gift Card</button>
-    <button class="checkout" onclick="pay()">FINALIZAR COMPRA</button>
-  </div>
-</div>
-
-<div class="chat-modal" id="chatModal">
+<div class="chat-modal" id="chatModal" onclick="if(event.target===this)closeChat()">
   <div class="chatbox">
     <div class="chat-head">
-      <div>
-        <strong>💬 Atendimento HyperBuxx</strong>
-        <div class="chat-sub">Conversa do seu pedido</div>
-      </div>
-      <button class="close" onclick="closeChat()">✕</button>
+      <div><strong>💬 Chat da HyperBuxx</strong><div class="chat-sub">Atendimento direto pelo site</div></div>
+      <button class="close" onclick="closeChat()">×</button>
     </div>
     <div class="chat-body" id="chatBody"></div>
-    <div class="chat-compose">
-      <input id="chatInput" placeholder="Digite sua mensagem..." onkeydown="if(event.key==='Enter')sendChat()">
-      <button onclick="sendChat()">Enviar</button>
-    </div>
-  </div>
-</div>
-
-<div class="gift-modal" id="giftModal">
-  <div class="gift-box">
-    <button class="close" onclick="closeGift()">✕</button>
-    <h2>🎁 Gift Card</h2>
-    <div id="giftBalance" class="gc-balance">Verificando saldo...</div>
-    <input class="gift-input" id="giftCode" placeholder="Digite o código do Gift Card">
-    <button class="gift-btn" onclick="redeemGiftCard()">Resgatar código</button>
-    <div id="giftMsg" style="margin-top:10px"></div>
-  </div>
-</div>
-
-<div class="gift-modal" id="giftPayModal">
-  <div class="gift-box">
-    <button class="close" onclick="closeGiftPay()">✕</button>
-    <h2>💰 Pagar com Gift Card</h2>
-    <div id="giftPayBalance" class="gc-balance">Verificando saldo...</div>
-    <div id="giftPayMsg"></div>
-    <button class="gift-btn" onclick="payWithGiftBalance()">Confirmar pagamento com saldo</button>
-  </div>
-</div>
-
-<div class="hx-overlay" id="hxAdminOverlay">
-  <div class="hx-box">
-    <button class="close" onclick="closeAdmin()">✕</button>
-    <h2>🔐 Painel Administrativo</h2>
-    <div id="hxLoginArea">
-      <input id="hxEmail" type="email" placeholder="E-mail do administrador">
-      <input id="hxPass" type="password" placeholder="Senha">
-      <button onclick="hxLogin()">Entrar</button>
-      <div id="hxAuthMsg" style="margin-top:10px"></div>
-    </div>
-
-    <div id="hxUserArea" style="display:none">
-      <p id="hxUser"></p>
-
-      <h3>🎁 Criar Gift Card</h3>
-      <input id="gcCodeAdmin" placeholder="Código">
-      <input id="gcValueAdmin" type="number" step="0.01" placeholder="Valor">
-      <button onclick="createGiftCard()">Criar Gift Card</button>
-      <div id="gcAdminMsg"></div>
-
-      <h3>📋 Gift Cards</h3>
-      <div id="gcAdminList"></div>
-
-      <h3>💬 Mensagens</h3>
-      <div id="hxAdminList"></div>
-
-      <button onclick="hxLogout()" style="margin-top:12px">Sair</button>
-    </div>
+    <div class="chat-actions"><button onclick="copyPix()">📋 Copiar Pix</button><button class="primary" onclick="confirmOrderMessage()">✅ Enviar pedido no chat</button></div>
+    <div class="chat-compose"><input id="chatInput" placeholder="Digite uma mensagem..." onkeydown="if(event.key==='Enter')sendChat()"><button onclick="sendChat()">Enviar</button></div>
   </div>
 </div>
 
 <script>
-const sb=window.hxSupabase;
-const ADMIN_EMAIL='joaopedrodega2@gmail.com';
-
-function $(id){return document.getElementById(id)}
-
-const products=[
+const PIX_KEY="512.397.788-05";
+const MERCHANT="HyperBuxx";
+const CITY="SAO PAULO";
+let products=[
+{id:1,cat:"blox",name:"Sanguin Art + Level Máximo",price:39,icon:"🥋"},
+    {id:204,cat:"blox",name:"Conta Level 2800 — 1 Fruta Garantida: Runic Yeti, Starlight Gravity, Kitsune, Dragon, Arcsteel ou Magnet",price:30,icon:"🎯",hot:true},
+    {id:205,cat:"blox",name:"Kitsune ou Magnet",price:25,icon:"🦊",hot:true},
+{id:2,cat:"blox",name:"Kitsune + God Human + Level Máximo",price:34,icon:"🦊"},
+{id:3,cat:"blox",name:"Dough V2 + God Human + Level Máximo",price:38,icon:"🍩"},
+{id:4,cat:"blox",name:"CDK + God Human + Level Máximo",price:28,icon:"⚔️"},
+{id:5,cat:"blox",name:"TTK + Chance de Mítica",price:39,icon:"🗡️"},
+{id:6,cat:"blox",name:"Draco V4 + God Human + Level Máximo",price:59,icon:"🐉"},
+{id:7,cat:"blox",name:"Cyborg V4 Full + God Human + CDK + Level Máximo",price:42,icon:"🤖"},
+{id:8,cat:"blox",name:"Ghoul V4 Full + God Human + CDK + Level Máximo",price:42,icon:"👹"},
+{id:9,cat:"blox",name:"Anjo V4 Full + God Human + CDK + Level Máximo",price:41,icon:"😇"},
+{id:10,cat:"blox",name:"Shark V4 Full + God Human + CDK + Level Máximo",price:39,icon:"🦈"},
+{id:11,cat:"blox",name:"Mink V4 Full + God Human + CDK + Level Máximo",price:39,icon:"🐰"},
+{id:12,cat:"blox",name:"Human V4 Full + CDK + God Human + Level Máximo",price:39,icon:"🧑"},
+{id:13,cat:"blox",name:"Ghoul V4 Premium + Sanguin Art + Level Máximo + Chance de Mítica + CDK",price:79,icon:"👹",hot:true},
+{id:14,cat:"blox",name:"Draco + Cyborg + Ghoul V4 Full + Level Máximo + CDK + God Human",price:89,icon:"👑",hot:true},
+{id:15,cat:"blox",name:"7 Raças V4 Full + CDK + God Human + Chance de Mítica",price:69,icon:"👑",hot:true},
 {id:200,cat:"blox",name:"7 Raças V4 Full + Sanguine Art + Dragão Permanente",price:250,icon:"🐉",hot:true},
-{id:201,cat:"blox",name:"Magnet Permanente",price:125,icon:"🧲",hot:true},
-{id:204,cat:"blox",name:"Conta Level 2800 — 1 Fruta Garantida: Runic Yeti, Starlight Gravity, Kitsune, Dragon, Arcsteel ou Magnet",price:30,icon:"🎯",hot:true},
-{id:205,cat:"blox",name:"Kitsune ou Magnet",price:25,icon:"🦊",hot:true},
-
-{id:1,cat:"blox",name:"Reset Status",price:10,icon:"🔄"},
-{id:2,cat:"blox",name:"Caixa de Frutas Permanente",price:29,icon:"📦"},
-{id:3,cat:"blox",name:"2X XP",price:9.90,icon:"⚡"},
-{id:4,cat:"blox",name:"Second Emote Page + 10 Emotes",price:14.90,icon:"😎"},
-{id:5,cat:"blox",name:"Gamepasses de 500R",price:25,icon:"🎟️"},
-{id:6,cat:"blox",name:"Gamepasses de 300R",price:18,icon:"🎟️"},
-{id:7,cat:"blox",name:"Second Night Race + More Fruits",price:24.90,icon:"🌙"},
-{id:8,cat:"blox",name:"10 Emotes + Second Emote Page + More Emote Slots + Awakening Outfit",price:39.90,icon:"✨"},
-
-{id:20,cat:"robux",name:"1K Robux",price:57,icon:"💰"},
-{id:21,cat:"robux",name:"2K Robux",price:105,icon:"💰"},
-{id:22,cat:"robux",name:"5K Robux",price:249,icon:"💰"},
-{id:23,cat:"robux",name:"10K Robux",price:489,icon:"💰"},
-
-{id:30,cat:"jujutsu",name:"Gamepass Jujutsu Shenanigans",price:40,icon:"⚔️"},
-{id:31,cat:"jujutsu",name:"Reset Status",price:10,icon:"🔄"},
-{id:32,cat:"jujutsu",name:"7 Raças V4 Full",price:69,icon:"🔥"},
-
-{id:40,cat:"brainrot",name:"Item Brainrot",price:15,icon:"🧠"},
-{id:41,cat:"brainrot",name:"Pacote Brainrot",price:25,icon:"🧠"},
-
-{id:50,cat:"fuga",name:"Speed",price:15,icon:"⚡"},
-{id:51,cat:"fuga",name:"Speed + Itens",price:25,icon:"⌨️"},
-
-{id:167,cat:"mm2",name:"Chroma Bringer Set [Darkbringer + Lightbringer]",price:58.90,icon:"🔪"},
-{id:168,cat:"mm2",name:"Bringer Set [Darkbringer + Lightbringer]",price:38.90,icon:"🔪"},
-{id:169,cat:"mm2",name:"Beachy Set [Beachy + Sands]",price:89.90,icon:"🏖️"},
-{id:170,cat:"mm2",name:"Sweet Set [Sweet Knife + Treat Gun]",price:107.90,icon:"🍭"},
-{id:171,cat:"mm2",name:"Ice Set 2020 [Ice Breaker + Ice Blaster]",price:147.90,icon:"🧊"},
-{id:172,cat:"mm2",name:"Elderwood Set [Elderwood Scythe + Elderwood Revolver]",price:44.90,icon:"🌲"},
-
-{id:173,cat:"animalhospital",name:"100 Moedas",price:14.85,icon:"🪙"},
-{id:174,cat:"animalhospital",name:"500 Moedas",price:27.90,icon:"🪙"},
+    {id:201,cat:"blox",name:"Magnet Permanente",price:125,icon:"🧲",hot:true},
+{id:16,cat:"blox",name:"Dragão Permanente (vem as duas versões)",price:170,icon:"🐲"},
+{id:17,cat:"blox",name:"Nova Control Permanente",price:138,icon:"🎮"},
+{id:18,cat:"blox",name:"Kitsune Permanente",price:138,icon:"🦊"},
+{id:19,cat:"blox",name:"Nova Tigr Permanente",price:105,icon:"🐯"},
+{id:20,cat:"blox",name:"Yeti Permanente",price:105,icon:"❄️"},
+{id:21,cat:"blox",name:"Venom Permanente",price:94,icon:"☠️"},
+{id:22,cat:"blox",name:"Spirit Permanente",price:91,icon:"👻"},
+{id:23,cat:"blox",name:"Gás Permanente",price:90,icon:"💨"},
+{id:24,cat:"blox",name:"Sombra Permanente",price:89,icon:"🌑"},
+{id:25,cat:"blox",name:"Blizzard Permanente",price:86,icon:"🌨️"},
+{id:26,cat:"blox",name:"Dough Permanente",price:85,icon:"🍩"},
+{id:27,cat:"blox",name:"T-Rex Permanente",price:85,icon:"🦖"},
+{id:28,cat:"blox",name:"Mamute Permanente",price:85,icon:"🦣"},
+{id:29,cat:"blox",name:"Nova Fruta Gravity Rework Permanente",price:84,icon:"🪐"},
+{id:30,cat:"blox",name:"Nova Phoenix Permanente",price:84,icon:"🔥"},
+{id:31,cat:"blox",name:"Pain Permanente",price:79,icon:"💥"},
+{id:32,cat:"blox",n
