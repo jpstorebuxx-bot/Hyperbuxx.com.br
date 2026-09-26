@@ -7,7 +7,10 @@
 <meta name="description" content="HyperBuxx — loja de produtos digitais para Roblox.">
 <style>
 *{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:
-radial-gradient(circle at 50% -10%,#193c72 0,#090d18 30%,#03050b 75%);color:#fff;min-height:100vh}
+radial-gradient(circle at 50% 0%,#168cff 0,#0a4b9b 16%,#061a3d 42%,#020817 78%,#01040b 100%);color:#fff;min-height:100vh;overflow-x:hidden;position:relative}
+body:before{content:"";position:fixed;inset:-45%;z-index:-3;pointer-events:none;background:repeating-conic-gradient(from 205deg at 50% 8%,transparent 0deg,transparent 7deg,rgba(45,157,255,.16) 7.7deg,transparent 9deg,transparent 18deg);filter:blur(1px);animation:hxRays 18s linear infinite}
+body:after{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;background:radial-gradient(circle at 18% 25%,rgba(0,166,255,.28),transparent 22%),radial-gradient(circle at 84% 32%,rgba(26,105,255,.25),transparent 24%),linear-gradient(180deg,rgba(0,21,62,.08),rgba(0,0,0,.55));}
+@keyframes hxRays{to{transform:rotate(360deg)}}
 button{font:inherit}a{text-decoration:none;color:inherit}
 .top{position:sticky;top:0;z-index:50;background:#070914eF;border-bottom:1px solid #24324e;backdrop-filter:blur(14px)}
 .nav{max-width:1180px;margin:auto;height:76px;display:flex;align-items:center;gap:14px;padding:10px 18px}
@@ -20,21 +23,23 @@ main{max-width:1180px;margin:auto;padding:18px}
 linear-gradient(120deg,#07162dDD,#10112bEE),radial-gradient(circle at 75% 20%,#9d28ff,#0b1f42);
 display:flex;align-items:center;padding:28px;overflow:hidden;position:relative}
 .hero:after{content:"HyperBuxx";position:absolute;right:-20px;bottom:-45px;font-size:100px;font-weight:1000;color:#ffffff08;transform:rotate(-8deg)}
+.hero:before{content:"";position:absolute;inset:-30%;background:linear-gradient(115deg,transparent 43%,rgba(90,193,255,.18) 44%,transparent 45%),linear-gradient(70deg,transparent 52%,rgba(0,119,255,.22) 53%,transparent 54%),linear-gradient(125deg,transparent 67%,rgba(120,205,255,.16) 68%,transparent 69%);transform:rotate(-7deg);animation:hxLightning 7s ease-in-out infinite;pointer-events:none}
+@keyframes hxLightning{0%,72%,100%{opacity:.25}76%{opacity:1}78%{opacity:.2}80%{opacity:.9}82%{opacity:.2}}
 .hero h1{font-size:clamp(34px,6vw,65px);margin:0 0 8px;letter-spacing:2px}.hero p{color:#b9c8dd;max-width:560px}.hero .tag{display:inline-block;background:#172c4c;border:1px solid #345b8d;padding:8px 12px;border-radius:999px;font-weight:800;font-size:13px}
 h2{font-size:28px;margin:30px 0 15px}.menu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-.menu-card{border:1px solid #33486c;border-radius:18px;min-height:145px;padding:20px;cursor:pointer;position:relative;overflow:hidden;
+.menu-card{border:1px solid #3477bd;border-radius:18px;min-height:165px;padding:20px;cursor:pointer;position:relative;overflow:hidden;box-shadow:0 12px 35px #001b3d88;
 background:linear-gradient(135deg,#0c1d38,#17102e);transition:.2s}.menu-card:hover{transform:translateY(-3px);border-color:#65aaff}
 .menu-card:nth-child(2){background:linear-gradient(135deg,#132b4b,#26104c)}.menu-card:nth-child(3){background:linear-gradient(135deg,#0b2441,#241044)}.menu-card:nth-child(4){background:linear-gradient(135deg,#10213b,#31124b)}
-.menu-card .emoji{font-size:42px}.menu-card h3{font-size:22px;margin:8px 0}.menu-card span{color:#aebdd0;font-size:13px}
+.menu-card .emoji{font-size:42px;position:relative;z-index:2;text-shadow:0 3px 15px #000}.menu-art{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.48;filter:saturate(1.18) contrast(1.08);transform:scale(1.04);transition:.25s}.menu-card:hover .menu-art{transform:scale(1.1);opacity:.62}.menu-card:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,15,40,.05),rgba(0,10,30,.9));pointer-events:none}.menu-card h3,.menu-card span{position:relative;z-index:2}.menu-card span{color:#d7e8ff}.menu-card h3{font-size:22px;margin:8px 0}.menu-card span{color:#aebdd0;font-size:13px}
 .section-head{display:flex;align-items:center;justify-content:space-between;margin-top:34px}.section-head h2{margin:0}.clear{background:none;border:0;color:#8dc7ff;cursor:pointer}
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin-top:15px}.product{cursor:pointer;background:linear-gradient(180deg,#0d1728,#070c16);border:1px solid #243a5c;border-radius:17px;padding:13px;display:flex;flex-direction:column;min-height:245px;position:relative}
-.badge{position:absolute;left:10px;top:10px;background:#7338ff;padding:5px 8px;border-radius:8px;font-size:10px;font-weight:900}.pic{height:95px;border-radius:13px;background:linear-gradient(135deg,#1c4c82,#31115e);display:grid;place-items:center;font-size:44px;margin-bottom:12px}.product h3{font-size:14px;line-height:1.3;margin:0 0 5px}.caption{font-size:10.5px;line-height:1.35;color:#aebdd0;margin:0 0 7px;min-height:29px}.stock{font-size:11px;color:#55e29b}.price{font-size:22px;font-weight:1000;margin-top:auto}.pixsmall{font-size:10px;color:#8194ac}.add{margin-top:10px;border:0;border-radius:11px;padding:11px;background:linear-gradient(90deg,#168cff,#7b45ff);color:white;font-weight:900;cursor:pointer}.add:hover{filter:brightness(1.12)}.product:hover{transform:translateY(-3px);border-color:#65aaff}.details-icon{font-size:48px;margin:4px 0 12px}.details-price{font-size:26px;font-weight:1000;margin:14px 0 4px}.details-desc{color:#b7c8dc;line-height:1.55;font-size:14px}.details-stock{color:#55e29b;font-weight:800;font-size:12px}.details-actions{display:flex;gap:10px;margin-top:18px}.details-actions button{flex:1;padding:12px;border-radius:11px;border:0;font-weight:900;cursor:pointer}.details-add{background:linear-gradient(90deg,#168cff,#7b45ff);color:#fff}.details-close{background:#101a2a;color:#fff;border:1px solid #2d4565!important}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin-top:15px}.product{cursor:pointer;background:linear-gradient(180deg,#0b1d38ee,#050b15f5);border:1px solid #243a5c;border-radius:17px;padding:13px;display:flex;flex-direction:column;min-height:245px;position:relative}
+.badge{position:absolute;left:10px;top:10px;background:#7338ff;padding:5px 8px;border-radius:8px;font-size:10px;font-weight:900}.pic{height:120px;border-radius:13px;background:#071b36 center/cover no-repeat;display:grid;place-items:center;font-size:44px;margin-bottom:12px;overflow:hidden;position:relative;box-shadow:inset 0 0 0 1px #4a91d955,0 8px 20px #0008}.pic:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(0,8,22,.72));pointer-events:none}.pic span{display:none}.pic-label{position:absolute;right:8px;bottom:8px;z-index:3;background:#111c2ddd;border:1px solid #6bb8ff;border-radius:8px;padding:4px 6px;font-size:10px;letter-spacing:.6px}.details-label{position:absolute;right:12px;top:12px;z-index:3;background:#111c2ddd;border:1px solid #6bb8ff;border-radius:9px;padding:6px 9px;font-size:12px;letter-spacing:.7px}.product h3{font-size:14px;line-height:1.3;margin:0 0 5px}.caption{font-size:10.5px;line-height:1.35;color:#aebdd0;margin:0 0 7px;min-height:29px}.stock{font-size:11px;color:#55e29b}.price{font-size:22px;font-weight:1000;margin-top:auto}.pixsmall{font-size:10px;color:#8194ac}.add{margin-top:10px;border:0;border-radius:11px;padding:11px;background:linear-gradient(90deg,#168cff,#7b45ff);color:white;font-weight:900;cursor:pointer}.add:hover{filter:brightness(1.12)}.product:hover{transform:translateY(-3px);border-color:#65aaff}.details-icon{font-size:48px;margin:4px 0 12px}.details-art{height:190px;border-radius:16px;background:center/cover no-repeat;position:relative;overflow:hidden;border:1px solid #3c79b8;box-shadow:0 10px 35px #0008}.details-art:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(0,5,18,.78))}.details-art span{display:none}.details-price{font-size:26px;font-weight:1000;margin:14px 0 4px}.details-desc{color:#b7c8dc;line-height:1.55;font-size:14px}.details-stock{color:#55e29b;font-weight:800;font-size:12px}.details-actions{display:flex;gap:10px;margin-top:18px}.details-actions button{flex:1;padding:12px;border-radius:11px;border:0;font-weight:900;cursor:pointer}.details-add{background:linear-gradient(90deg,#168cff,#7b45ff);color:#fff}.details-close{background:#101a2a;color:#fff;border:1px solid #2d4565!important}
 .features{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:32px 0}.feature{background:#091221;border:1px solid #203653;border-radius:15px;padding:16px}.feature b{display:block;margin-bottom:5px}.feature span{color:#91a5bf;font-size:13px}
 .drawer{position:fixed;right:-420px;top:0;width:min(410px,100%);height:100%;background:#070c16;border-left:1px solid #263c5e;z-index:100;padding:20px;transition:.25s;box-shadow:-20px 0 60px #0009;overflow:auto}.drawer.open{right:0}.drawer-head{display:flex;justify-content:space-between;align-items:center}.drawer h2{margin:0}.close{background:#111a29;border:1px solid #2b4264;color:#fff;border-radius:10px;width:40px;height:40px;cursor:pointer}.cart-item{display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid #1c2a40;padding:14px 0}.remove{background:none;border:0;color:#ff6b7a;cursor:pointer}.total{font-size:24px;font-weight:1000;margin:20px 0}.pay{width:100%;padding:14px;border:0;border-radius:13px;background:linear-gradient(90deg,#1d9aff,#7546ff);color:white;font-weight:1000;cursor:pointer}.empty{color:#879ab1;text-align:center;padding:40px 10px}
 .modal{position:fixed;inset:0;background:#000b;display:none;place-items:center;z-index:120;padding:18px}.modal.open{display:grid}.modalbox{width:min(440px,100%);background:#09111f;border:1px solid #2b4569;border-radius:20px;padding:20px;position:relative}.modalbox h2{margin:0 0 10px}.qr{background:#fff;padding:12px;border-radius:12px;width:240px;height:240px;margin:18px auto;display:grid;place-items:center}.qr img{width:100%;height:100%;image-rendering:auto}.copy{width:100%;padding:11px;border:1px solid #2d4565;background:#101a2a;color:#fff;border-radius:10px;cursor:pointer}.status{margin-top:12px;background:#111c2d;border:1px solid #284363;border-radius:11px;padding:11px;color:#b8c9de;font-size:13px}.warning{color:#ffca6b;font-size:12px;line-height:1.4}
-.chat-modal{position:fixed;inset:0;background:#000c;display:none;place-items:center;z-index:140;padding:16px}.chat-modal.open{display:grid}.chatbox{width:min(620px,100%);height:min(760px,92vh);background:#07101d;border:1px solid #344d72;border-radius:20px;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 25px 80px #000c}.chat-head{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;background:linear-gradient(90deg,#101d35,#21133b);border-bottom:1px solid #2b4160}.chat-head strong{font-size:18px}.chat-sub{font-size:11px;color:#8fa4be;margin-top:3px}.chat-body{flex:1;overflow:auto;padding:16px;background:radial-gradient(circle at 80% 10%,#20104a55,#07101d 45%)}.bubble{max-width:82%;padding:11px 13px;border-radius:14px;margin:8px 0;line-height:1.45;font-size:13px;white-space:pre-wrap}.bubble.store{background:#101c2f;border:1px solid #294365}.bubble.user{background:linear-gradient(90deg,#168cff,#7b45ff);margin-left:auto}.order-card{background:#0b1626;border:1px solid #294365;border-radius:14px;padding:13px;margin:12px 0}.order-card h3{margin:0 0 8px;font-size:14px}.order-line{display:flex;justify-content:space-between;gap:10px;padding:5px 0;color:#c5d2e3;font-size:12px}.chat-pay{margin-top:10px;padding:12px;border-radius:11px;background:#0e2136;border:1px solid #2c5279}.chat-qr{width:150px;height:150px;background:#fff;padding:7px;border-radius:10px;display:block;margin:10px auto}.chat-compose{display:flex;gap:8px;padding:12px;border-top:1px solid #263b59;background:#08111f}.chat-compose input{flex:1;min-width:0;padding:12px;border-radius:11px;border:1px solid #2a4162;background:#0c1727;color:#fff;outline:none}.chat-compose button{padding:12px 15px;border:0;border-radius:11px;background:linear-gradient(90deg,#168cff,#7b45ff);color:#fff;font-weight:900;cursor:pointer}.chat-actions{display:flex;gap:8px;padding:0 12px 12px;background:#08111f}.chat-actions button{flex:1;padding:10px;border-radius:10px;border:1px solid #2b4264;background:#101a2a;color:#fff;cursor:pointer;font-weight:800}.chat-actions .primary{background:linear-gradient(90deg,#168cff,#7b45ff);border:0}.chat-compose button:disabled{opacity:.45;cursor:not-allowed}footer{border-top:1px solid #18283f;color:#8194ad;text-align:center;padding:28px;margin-top:35px}
+.chat-modal{position:fixed;inset:0;background:#000c;display:none;place-items:center;z-index:140;padding:16px}.chat-modal.open{display:grid}.chatbox{width:min(620px,100%);height:min(760px,92vh);background:#07101d;border:1px solid #344d72;border-radius:20px;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 25px 80px #000c}.chat-head{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;background:linear-gradient(90deg,#101d35,#21133b);border-bottom:1px solid #2b4160}.chat-head strong{font-size:18px}.chat-sub{font-size:11px;color:#8fa4be;margin-top:3px}.chat-body{flex:1;overflow:auto;padding:16px;background:radial-gradient(circle at 80% 10%,#20104a55,#07101d 45%)}.bubble{max-width:82%;padding:11px 13px;border-radius:14px;margin:8px 0;line-height:1.45;font-size:13px;white-space:pre-wrap}.bubble.store{background:#101c2f;border:1px solid #294365}.bubble.user{background:linear-gradient(90deg,#168cff,#7b45ff);margin-left:auto}.order-card{background:#0b1626;border:1px solid #294365;border-radius:14px;padding:13px;margin:12px 0}.order-card h3{margin:0 0 8px;font-size:14px}.order-line{display:flex;justify-content:space-between;gap:10px;padding:5px 0;color:#c5d2e3;font-size:12px}.chat-pay{margin-top:10px;padding:12px;border-radius:11px;background:#0e2136;border:1px solid #2c5279}.chat-qr{width:150px;height:150px;background:#fff;padding:7px;border-radius:10px;display:block;margin:10px auto}.chat-compose{display:flex;gap:8px;padding:12px;border-top:1px solid #263b59;background:#08111f}.chat-compose input{flex:1;min-width:0;padding:12px;border-radius:11px;border:1px solid #2a4162;background:#0c1727;color:#fff;outline:none}.chat-compose button{padding:12px 15px;border:0;border-radius:11px;background:linear-gradient(90deg,#168cff,#7b45ff);color:#fff;font-weight:900;cursor:pointer}.chat-actions{display:flex;gap:8px;padding:0 12px 12px;background:#08111f}.chat-actions button{flex:1;padding:10px;border-radius:10px;border:1px solid #2b4264;background:#101a2a;color:#fff;cursor:pointer;font-weight:800}.chat-actions .primary{background:linear-gradient(90deg,#168cff,#7b45ff);border:0}footer{border-top:1px solid #18283f;color:#8194ad;text-align:center;padding:28px;margin-top:35px}
 @media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}.features{grid-template-columns:1fr}.hero{height:205px}}
-@media(max-width:520px){.nav{height:68px}.logo{font-size:21px}.hero{padding:20px;height:190px}.hero h1{font-size:34px}.grid{gap:9px}.product{min-height:225px;padding:10px}.pic{height:78px;font-size:35px}.menu-card{min-height:130px;padding:14px}.menu-card h3{font-size:18px}h2{font-size:23px}}
+@media(max-width:520px){.nav{height:68px}.logo{font-size:21px}.hero{padding:20px;height:190px}.hero h1{font-size:34px}.grid{gap:9px}.product{min-height:225px;padding:10px}.pic{height:96px;font-size:35px}.menu-card{min-height:130px;padding:14px}.menu-card h3{font-size:18px}h2{font-size:23px}}
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
@@ -46,7 +51,7 @@ window.hxSupabase=window.supabase.createClient(window.HYPERBUXX_SUPABASE_URL,win
 <style id="giftcard-style">
 .gc-launch{position:fixed;left:16px;bottom:16px;z-index:5000;background:linear-gradient(90deg,#168cff,#7b45ff);color:#fff;border:0;border-radius:14px;padding:12px 16px;font-weight:900;box-shadow:0 8px 28px #0008;cursor:pointer}
 .gc-overlay{display:none;position:fixed;inset:0;z-index:7000;background:#000c;align-items:center;justify-content:center;padding:16px}.gc-overlay.open{display:flex}
-.gc-box{width:min(560px,100%);max-height:90vh;overflow:auto;background:#0b1424;color:#fff;border:1px solid #31517d;border-radius:20px;padding:20px}.gc-box input,.gc-box select{width:100%;box-sizing:border-box;padding:12px;margin:6px 0;border-radius:10px;border:1px solid #30476c;background:#07101d;color:#fff}.gc-box button{padding:10px 14px;border:0;border-radius:10px;background:#1769ff;color:#fff;font-weight:800;margin:4px;cursor:pointer}.gc-close{float:right;background:#273650!important}.gc-card{background:#101e33;border:1px solid #2c4568;border-radius:12px;padding:11px;margin:8px 0}.gc-muted{opacity:.75;font-size:12px}.gc-success{color:#55e29b}.gc-error{color:#ff7c8a}.gc-admin{border-top:1px solid #29415f;margin-top:15px;padding-top:15px}
+.gc-box{width:min(560px,100%);max-height:90vh;overflow:auto;background:#0b1424;color:#fff;border:1px solid #31517d;border-radius:20px;padding:20px}.gc-box input,.gc-box select{width:100%;box-sizing:border-box;padding:12px;margin:6px 0;border-radius:10px;border:1px solid #30476c;background:#07101d;color:#fff}.gc-box button{padding:10px 14px;border:0;border-radius:10px;background:#1769ff;color:#fff;font-weight:800;margin:4px;cursor:pointer}.gc-values{display:flex;flex-wrap:wrap;gap:4px}.gc-values button{flex:1 1 70px;background:linear-gradient(90deg,#168cff,#7b45ff)}.gc-buy{border-color:#397ed0;background:linear-gradient(180deg,#10233d,#0b1728)}.gc-buy input{margin:0}.gc-close{float:right;background:#273650!important}.gc-card{background:#101e33;border:1px solid #2c4568;border-radius:12px;padding:11px;margin:8px 0}.gc-muted{opacity:.75;font-size:12px}.gc-success{color:#55e29b}.gc-error{color:#ff7c8a}.gc-admin{border-top:1px solid #29415f;margin-top:15px;padding-top:15px}
 </style>
 </head>
 <body>
@@ -101,7 +106,7 @@ window.hxSupabase=window.supabase.createClient(window.HYPERBUXX_SUPABASE_URL,win
   </section>
 </main>
 
-<footer>© 2026 HyperBuxx • Produtos digitais</footer>
+<footer>© 2026 HyperBuxx • Produtos digitais<br><small style="opacity:.65">Artes dos jogos exibidas para identificar as categorias/produtos.</small></footer>
 
 <aside class="drawer" id="drawer">
   <div class="drawer-head"><h2>Seu carrinho</h2><button class="close" onclick="closeCart()">×</button></div>
@@ -333,6 +338,53 @@ let category="all",cart=[];
 
 function brl(v){return v.toLocaleString("pt-BR",{style:"currency",currency:"BRL"});}
 function selectCategory(c){category=c;document.getElementById("productsTitle").textContent=c==="all"?"Produtos populares":({blox:"Blox Fruits",jujutsu:"Jujutsu Shenanigans",robux:"Robux",brainrot:"Roube um Brainrot",fuga:"Fuga de Teclado",mm2:"Murder Mystery 2",animalhospital:"Hospital de Animais",grow2:"Cresça um Jardim 2",adopt:"Adopt Me",brookhaven:"Brookhaven",rivals:"Rivals",sailor:"Sailor Piece",haze:"Haze Seas",nights99:"99 Noites na Floresta",kick:"Kick a Lucky Block"}[c]);renderProducts();window.scrollTo({top:document.getElementById("productsTitle").offsetTop-90,behavior:"smooth"});}
+const HX_IMAGES={
+ blox:"https://tr.rbxcdn.com/180DAY-fc1b6cc7418058c8617b899982b05fb0/500/280/Image/Jpeg/noFilter",
+ jujutsu:"https://minutemedia-ressh.cloudinary.com/image/upload/v1700664349/shape/cover/sport/d79ab1fe565ce31b6ef924c9985bd0626ac9bfd7b9f9be60082804e0bf161c45.jpg",
+ brainrot:"https://tr.rbxcdn.com/180DAY-fb0c9831cfc229efe370272d75981c97/500/280/Image/Jpeg/noFilter",
+ robux:"https://tr.rbxcdn.com/180DAY-4fcb22e252c188f45577246217cca4b7/500/280/Image/Jpeg/noFilter",
+ fuga:"https://tr.rbxcdn.com/180DAY-1667d805ca083221d4030bd05dba6334/500/280/Image/Jpeg/noFilter",
+ mm2:"https://tr.rbxcdn.com/180DAY-87bec0a99ceeb6d711871ed32e51e153/500/280/Image/Jpeg/noFilter",
+ animalhospital:"https://tr.rbxcdn.com/180DAY-529d627ec21d9a5fad0d6740f90c49a0/500/280/Image/Jpeg/noFilter",
+ grow2:"https://tr.rbxcdn.com/180DAY-4410197e66cace29c150f680cb327dca/500/280/Image/Jpeg/noFilter",
+ adopt:"https://tr.rbxcdn.com/180DAY-da9aef15de2897fa15480700653c5f8b/500/280/Image/Jpeg/noFilter",
+ brookhaven:"https://tr.rbxcdn.com/180DAY-218ebf5bc2ea338bd18de0e3f9896467/500/280/Image/Jpeg/noFilter",
+ rivals:"https://tr.rbxcdn.com/180DAY-4fcb22e252c188f45577246217cca4b7/500/280/Image/Jpeg/noFilter",
+ sailor:"https://tr.rbxcdn.com/180DAY-c1d30fd2f5b6785149f955ed22898c3e/500/280/Image/Jpeg/noFilter",
+ haze:"https://tr.rbxcdn.com/180DAY-8737a31314e586f254e2a903f144cd87/500/280/Image/Jpeg/noFilter",
+ nights99:"https://tr.rbxcdn.com/180DAY-674c7d0bf628d68870fc9fae766165cf/500/280/GameIcon3/Jpeg/noFilter",
+ kick:"https://tr.rbxcdn.com/180DAY-602f6284a0625483c2c70e5aa313990c/500/280/Image/Jpeg/noFilter"
+};
+HX_IMAGES.sailor="https://dnm.nflximg.net/api/v6/2DuQlx0fM4wd1nzqm5BFBi6ILa8/AAAAQSoK3dfzW9sOG6wDiexsad5N7lOtRELzrRijCE9E9QwCovGNcTMUVeZZO6bGS-NnFVL-vopeK9BGGOKURoYRO2anCkVAnk6jjAwvfB79KVWjrsLK8whEXyNHkrgB9rvE-lQ0dW-AE0QBNkn-X9qS_fG1.jpg?r=e9e";
+const PRODUCT_IMAGES={
+ dough:"https://bloxfruitswiki.org/wiki/_assets/img/f8e5c8172aa27d4967a4c1dfcf6274c5.webp",
+ kitsune:"https://bloxfruitswiki.org/wiki/_assets/img/be07ec067c6f44dd1141b806b0fbf7cd.webp",
+ yati:"https://bloxfruitswiki.org/wiki/_assets/img/20b26681dda188c523cd23a73425e1d8.webp",
+ tiger:"https://bloxfruitswiki.org/wiki/_assets/img/f1acc2af83f739d280ec963dba8c9cdd.webp",
+ dragon:"https://wikiassets.net/bloxfruits-3bec24/images/c17c3878fc62726beca8774a107e2e09.webp"
+};
+function productImageFor(p){
+ const n=(p.name||'').toLowerCase();
+ if(n.includes('dough')) return PRODUCT_IMAGES.dough;
+ if(n.includes('kitsune')) return PRODUCT_IMAGES.kitsune;
+ if(n.includes('yeti')) return PRODUCT_IMAGES.yati;
+ if(n.includes('tigr')) return PRODUCT_IMAGES.tiger;
+ if(n.includes('dragão')||n.includes('dragon')) return PRODUCT_IMAGES.dragon;
+ return HX_IMAGES[p.cat]||HX_IMAGES.robux;
+}
+function productVisualLabel(p){
+ const n=(p.name||'').toLowerCase();
+ if(n.includes('dough')) return 'DOUGH V2';
+ if(n.includes('kitsune')) return 'KITSUNE';
+ if(n.includes('yeti')) return 'YETI';
+ if(n.includes('tigr')) return 'TIGER';
+ if(n.includes('dragão')||n.includes('dragon')) return 'DRAGON';
+ if(n.includes('robux')) return 'ROBUX';
+ if(n.includes('gift card')) return 'GIFT CARD';
+ return '';
+}
+function imageFor(p){return productImageFor(p);}
+function setupMenuArt(){document.querySelectorAll('.menu-card').forEach(card=>{const m=card.getAttribute('onclick')||'';const cat=(m.match(/selectCategory\('([^']+)'/)||[])[1];if(cat&&HX_IMAGES[cat]){let a=card.querySelector('.menu-art');if(!a){a=document.createElement('div');a.className='menu-art';card.prepend(a)}a.style.backgroundImage=`url("${HX_IMAGES[cat]}")`;}});}
 function renderProducts(){
  const q=(document.getElementById("searchInput")?.value||"").trim().toLowerCase();
  const list=products.filter(p=>{
@@ -340,11 +392,12 @@ function renderProducts(){
    const matchesCategory=category==="all" || p.cat===category;
    return q ? matchesSearch : matchesCategory;
  });
- document.getElementById("products").innerHTML=list.map(p=>`<article class="product" onclick="openDetails(${p.id})"><span class="badge">${p.hot?"PROMOÇÃO":"DISPONÍVEL"}</span><div class="pic">${p.icon}</div><h3>${p.name}</h3><div class="caption">${captionFor(p)}</div><div class="stock">● Em estoque</div><div class="price">${brl(p.price)}</div><div class="pixsmall">À vista no Pix</div><button class="add" onclick="event.stopPropagation();add(${p.id})">Adicionar ao carrinho</button></article>`).join("")||'<div class="empty">Nenhum produto encontrado.</div>';
+ document.getElementById("products").innerHTML=list.map(p=>`<article class="product" onclick="openDetails(${p.id})"><span class="badge">${p.hot?"PROMOÇÃO":"DISPONÍVEL"}</span><div class="pic" style="background-image:url('${imageFor(p)}')"><span>${p.icon}</span>${productVisualLabel(p)?`<b class="pic-label">${productVisualLabel(p)}</b>`:''}</div><h3>${p.name}</h3><div class="caption">${captionFor(p)}</div><div class="stock">● Em estoque</div><div class="price">${brl(p.price)}</div><div class="pixsmall">À vista no Pix</div><button class="add" onclick="event.stopPropagation();add(${p.id})">Adicionar ao carrinho</button></article>`).join("")||'<div class="empty">Nenhum produto encontrado.</div>';
 }
 function captionFor(p){
  const n=p.name.toLowerCase();
  // Robux fica sem a nova legenda promocional, como solicitado.
+ if(p.cat==="giftcard") return `🎁 Crédito de ${brl(p.price)} para usar em compras na HyperBuxx.`;
  if(p.cat==="robux") return `💎 Recarga de ${p.name} para sua conta Roblox.`;
  if(p.cat==="mm2"){
    let text;
@@ -387,6 +440,7 @@ function descriptionFor(p){
   "10 Emotes + Second Emote Page + More Emote Slots + Awakening Outfit":"Pacote completo para ampliar sua coleção de emotes, liberar a segunda página, adicionar mais espaços de emotes e incluir o Awakening Outfit."
  };
  if(special[p.name]) return special[p.name];
+ if(p.cat==="giftcard") return `🎁 Gift Card HyperBuxx no valor de ${brl(p.price)}. Após a confirmação do pagamento, o administrador gera e entrega o código para você pelo atendimento da loja.`;
  if(p.cat==="mm2"){
    if(/conta/i.test(p.name)) return "Conta de Murder Mystery 2 com o conteúdo indicado no título. Esta oferta é a exceção à exigência de nível 10+.";
    return "Item de Murder Mystery 2 conforme descrito no título. ⚠️ Requer nível 10 ou superior no Murder Mystery 2 para receber/utilizar esta oferta.";
@@ -396,7 +450,7 @@ function descriptionFor(p){
 }
 function openDetails(id){
  const p=products.find(x=>x.id===id); if(!p)return;
- document.getElementById("detailsIcon").textContent=p.icon;
+ document.getElementById("detailsIcon").innerHTML=`<div class="details-art" style="background-image:url('${imageFor(p)}')"><span>${p.icon}</span>${productVisualLabel(p)?`<b class="details-label">${productVisualLabel(p)}</b>`:''}</div>`;
  document.getElementById("detailsTitle").textContent=p.name;
  document.getElementById("detailsDesc").textContent=descriptionFor(p);
  document.getElementById("detailsPrice").textContent=brl(p.price);
@@ -408,105 +462,65 @@ function add(id){const p=products.find(x=>x.id===id);const old=cart.find(x=>x.id
 function remove(id){cart=cart.filter(x=>x.id!==id);updateCart();}
 function updateCart(){
  document.getElementById("count").textContent=cart.reduce((s,x)=>s+x.qty,0);
- document.getElementById("cartItems").innerHTML=cart.length?cart.map(x=>`<div class="cart-item"><div><b>${x.name}</b><br><small>${x.qty} × ${brl(x.price)}</small></div><button class="remove" onclick="remove(${x.id})">Remover</button></div>`).join(""):'<div class="empty">Seu carrinho está vazio.</div>';
+ document.getElementById("cartItems").innerHTML=cart.length?cart.map(x=>`<div class="cart-item"><div><b>${x.name}</b><br><small>${x.qty} × ${brl(x.price)}</small></div><button class="remove" onclick='remove(${JSON.stringify(x.id)})'>Remover</button></div>`).join(""):'<div class="empty">Seu carrinho está vazio.</div>';
  document.getElementById("total").textContent=brl(cart.reduce((s,x)=>s+x.price*x.qty,0));
 }
 function openCart(){document.getElementById("drawer").classList.add("open");updateCart();}
 function closeCart(){document.getElementById("drawer").classList.remove("open");}
 function toggleSearch(){const s=document.getElementById("search");s.style.display=s.style.display==="block"?"none":"block";if(s.style.display==="block"){const input=document.getElementById("searchInput");input.focus();input.select();renderProducts();}}
 function toggleMenu(){document.getElementById("categorias").scrollIntoView({behavior:"smooth"});}
-async function getHxUser(){
- try{
-  const {data:{session}}=await window.hxSupabase.auth.getSession();
-  if(session?.user) return session.user;
-  const {data,error}=await window.hxSupabase.auth.signInAnonymously();
-  if(error) throw error;
-  return data.user;
- }catch(e){ console.error(e); alert('Não foi possível iniciar a sessão automática. Ative Anonymous Sign-Ins no Supabase.'); return null; }
-}
 async function pay(){
  if(!cart.length){alert("Adicione pelo menos um produto ao carrinho.");return;}
- const user=await getHxUser(); if(!user)return;
  const total=cart.reduce((s,x)=>s+x.price*x.qty,0);
- const orderCode="HX"+Date.now().toString().slice(-8);
- const items=cart.map(x=>({id:x.id,name:x.name,qty:x.qty,price:x.price}));
- const {data,error}=await window.hxSupabase.from('orders').insert({order_code:orderCode,customer_id:user.id,total,payment_method:'pix',payment_status:'pending',status:'active',items}).select().single();
- if(error){console.error(error);alert('Não foi possível criar o pedido: '+error.message);return;}
- window.currentOrder=orderCode; window.currentOrderRow=data; window.orderId=orderCode; window.orderTotal=total;
- window.pixPayload=makePix(total,orderCode);
+ const payload=makePix(total,"HX"+Date.now().toString().slice(-10));
+ window.pixPayload=payload;
+ window.orderTotal=total;
+ window.orderId="HX"+Date.now().toString().slice(-8);
  document.getElementById("chatModal").classList.add("open");
+ renderChatOrder(payload);
  closeCart();
- renderChatOrder(window.pixPayload);
- subscribeCurrentOrder(orderCode);
+
 }
 function closeChat(){document.getElementById("chatModal").classList.remove("open");}
 function renderChatOrder(payload){
- const body=document.getElementById("chatBody"); body.innerHTML="";
- const items=(window.currentOrderRow?.items||cart).map(x=>`<div class="order-line"><span>${x.qty} × ${x.name}</span><b>${brl(Number(x.price)*Number(x.qty))}</b></div>`).join("");
+ const body=document.getElementById("chatBody");
+ const saved=JSON.parse(localStorage.getItem("hyperbuxx_chat")||"[]");
+ body.innerHTML="";
+ saved.forEach(m=>addBubble(m.text,m.who,false));
+ const items=cart.map(x=>`<div class=\"order-line\"><span>${x.qty} × ${x.name}</span><b>${brl(x.price*x.qty)}</b></div>`).join("");
  const order=document.createElement("div"); order.className="order-card";
- order.innerHTML=`<h3>🧾 Pedido #${window.orderId}</h3>${items}<div class="order-line"><strong>Total</strong><strong>${brl(window.orderTotal)}</strong></div>
- <div id="paymentArea" class="chat-pay"><div id="paymentStatusText">💠 <b>Pagamento via Pix</b><br><small>Faça o pagamento e depois toque em <b>Já paguei</b>. Isso avisa o administrador, mas <b>não libera o chat</b>.</small></div>
- <img class="chat-qr" src="https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=${encodeURIComponent(payload)}" alt="QR Code Pix">
- <button class="copy" onclick="copyPix()">📋 Copiar Pix</button>
- <button class="chat-actions-btn" style="width:100%;margin-top:8px;padding:11px;border:0;border-radius:10px;background:#1769ff;color:#fff;font-weight:900" onclick="notifyPaid()">✅ Já paguei</button>
- </div>`;
+ order.innerHTML=`<h3>🧾 Pedido #${window.orderId}</h3>${items}<div class="order-line"><strong>Total</strong><strong>${brl(window.orderTotal)}</strong></div><div class="chat-pay">💳 <b>Escolha a forma de pagamento</b><br><button class="primary" style="margin-top:10px" onclick="payWithBalance()">💰 Pagar com saldo do Gift Card</button><div id="balancePayStatus" style="margin-top:8px;font-size:12px;color:#9fb1c8">Consultando seu saldo...</div><hr style="border:0;border-top:1px solid #2a3b57;margin:14px 0"><div>💠 <b>Pagamento via Pix</b><br><small>Faça o pagamento e envie o comprovante aqui no chat.</small><img class="chat-qr" src="https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=${encodeURIComponent(payload)}" alt="QR Code Pix"></div></div>`;
  body.appendChild(order);
- const lock=document.createElement('div'); lock.id='chatLock'; lock.className='order-card'; lock.innerHTML='<b>🔒 Chat bloqueado até a confirmação do pagamento.</b><div style="margin-top:6px;color:#9fb1c8;font-size:12px">Depois que o administrador confirmar o pagamento, o chat será liberado automaticamente.</div>';
- body.appendChild(lock);
- updateChatComposer(false);
+ addBubble("Olá! 👋 Seu pedido foi aberto aqui no site. Faça o Pix e envie o comprovante nesta conversa para continuar o atendimento.","store",true);
  body.scrollTop=body.scrollHeight;
-}
-function updateChatComposer(unlocked){
- const input=document.getElementById('chatInput'), send=document.querySelector('.chat-compose button');
- if(input){input.disabled=!unlocked;input.placeholder=unlocked?'Digite uma mensagem...':'🔒 Chat bloqueado até o pagamento ser confirmado';}
- if(send) send.disabled=!unlocked;
- const lock=document.getElementById('chatLock'); if(lock) lock.style.display=unlocked?'none':'block';
-}
-async function loadOrderMessages(orderId){
- const {data,error}=await window.hxSupabase.from('messages').select('*').eq('order_id',orderId).order('created_at',{ascending:true});
- if(error){console.error(error);return;}
- const body=document.getElementById('chatBody');
- body.querySelectorAll('.bubble').forEach(x=>x.remove());
- (data||[]).forEach(m=>addBubble(m.message,m.is_admin?'store':'user',false));
- body.scrollTop=body.scrollHeight;
-}
-async function unlockCurrentChat(){
- updateChatComposer(true);
- const lock=document.getElementById('chatLock'); if(lock) lock.innerHTML='<b>✅ Pagamento confirmado!</b><div style="margin-top:6px;color:#9fb1c8;font-size:12px">Agora você pode falar com o atendimento pelo chat.</div>';
- await loadOrderMessages(window.currentOrderRow.id);
-}
-let hxOrderChannel=null;
-function subscribeCurrentOrder(orderCode){
- if(hxOrderChannel) window.hxSupabase.removeChannel(hxOrderChannel);
- hxOrderChannel=window.hxSupabase.channel('hx-order-'+orderCode).on('postgres_changes',{event:'UPDATE',schema:'public',table:'orders',filter:'order_code=eq.'+orderCode},async payload=>{
-   window.currentOrderRow=payload.new;
-   if(payload.new.payment_status==='paid') await unlockCurrentChat();
-   if(payload.new.status==='delivered'){
-     updateChatComposer(false);
-     const b=document.getElementById('chatBody'); if(b) b.insertAdjacentHTML('beforeend','<div class="order-card"><b>📦 Pedido entregue!</b><div style="margin-top:6px;color:#9fb1c8;font-size:12px">Este atendimento foi encerrado.</div></div>');
-   }
- }).subscribe();
-}
-async function notifyPaid(){
- if(!window.currentOrderRow?.id)return;
- const {error}=await window.hxSupabase.rpc('mark_payment_notice',{p_order_id:window.currentOrderRow.id});
- if(error){alert(error.message);return;}
- alert('Aviso enviado ao administrador. O chat continuará bloqueado até a confirmação do pagamento.');
 }
 function addBubble(text,who,save=true){
  const b=document.createElement("div"); b.className="bubble "+(who==='user'?'user':'store'); b.textContent=text; document.getElementById("chatBody").appendChild(b);
+ if(save){const saved=JSON.parse(localStorage.getItem("hyperbuxx_chat")||"[]");saved.push({text,who});localStorage.setItem("hyperbuxx_chat",JSON.stringify(saved.slice(-50)));}
 }
-async function sendChat(){
- const i=document.getElementById("chatInput"),t=i.value.trim(); if(!t||!window.currentOrderRow?.id)return;
- if(window.currentOrderRow.payment_status!=='paid'||window.currentOrderRow.status==='delivered'){alert('O chat só fica disponível depois que o pagamento for confirmado.');return;}
- const user=await getHxUser(); if(!user)return;
- const {error}=await window.hxSupabase.from('messages').insert({order_id:window.currentOrderRow.id,user_id:user.id,message:t,is_admin:false});
- if(error){alert('Não foi possível enviar: '+error.message);return;}
- i.value='';
-}
-function confirmOrderMessage(){notifyPaid();}
+function sendChat(){const i=document.getElementById("chatInput");const t=i.value.trim();if(!t)return;addBubble(t,"user");i.value="";setTimeout(()=>addBubble("Mensagem recebida! Um atendente continuará seu pedido por este chat durante o horário de funcionamento (12:20 às 21:00).","store"),450);}
+function confirmOrderMessage(){addBubble(`📦 Pedido #${window.orderId} — ${brl(window.orderTotal)}\nPagamento realizado? Envie o comprovante aqui para conferência.`,'user');setTimeout(()=>addBubble("Perfeito! Aguarde a conferência do pagamento. O atendimento continuará por aqui.","store"),450);}
 async function payWithBalance(){
- alert('O pagamento com saldo será integrado ao pedido atual depois que o sistema de Gift Card estiver configurado no Supabase. Para este pedido, use Pix.');
+ const status=document.getElementById("balancePayStatus");
+ if(status) status.textContent="Verificando saldo...";
+ try {
+ const user=await window.hxGetAnonymousUser();
+ if(!user){if(status) status.textContent="Não foi possível iniciar a sessão automática. Verifique se Anonymous Sign-Ins está ativado.";return;}
+ const sb=window.hxSupabase;
+ const {data:bal,error:be}=await sb.rpc('get_wallet_balance');
+ if(be){if(status) status.textContent="Não foi possível consultar o saldo.";return;}
+ const balance=Number(bal||0), total=Number(window.orderTotal||0);
+ if(balance<total){if(status) status.textContent=`Saldo insuficiente. Saldo atual: ${brl2(balance)}.`;return;}
+ if(!confirm(`Confirmar pagamento de ${brl2(total)} usando seu saldo?`)) return;
+ const {data,error}=await sb.rpc('pay_with_balance',{p_amount:total});
+ if(error){if(status) status.textContent=error.message;return;}
+ if(status) status.textContent=`✅ Pagamento aprovado! Saldo restante: ${brl2(data||0)}.`;
+ addBubble(`💰 Pedido #${window.orderId} pago com saldo do Gift Card. Total: ${brl2(total)}.`,'user');
+ setTimeout(()=>addBubble("✅ Pagamento confirmado! Seu pedido foi enviado para atendimento.",'store'),250);
+ } catch(e) {
+  console.error('payWithBalance:',e);
+  if(status) status.textContent='Não foi possível consultar o saldo: '+(e?.message||e);
+ }
 }
 function copyPix(){navigator.clipboard?.writeText(window.pixPayload).then(()=>addBubble("📋 Pix Copia e Cola copiado!",'store')).catch(()=>addBubble(window.pixPayload,'store'));}
 function crc16(s){let crc=0xFFFF;for(let c of s){crc^=c.charCodeAt(0)<<8;for(let i=0;i<8;i++)crc=(crc&0x8000)?((crc<<1)^0x1021)&0xFFFF:(crc<<1)&0xFFFF;}return crc.toString(16).toUpperCase().padStart(4,"0");}
@@ -518,7 +532,7 @@ function makePix(amount,txid){
  let payload=field("00","01")+field("01","12")+merchant+field("52","0000")+field("53","986")+field("54",amount.toFixed(2))+field("58","BR")+field("59",MERCHANT.slice(0,25))+field("60",CITY.slice(0,15))+field("62",additional)+"6304";
  return payload+crc16(payload);
 }
-renderProducts();updateCart();
+setupMenuArt();renderProducts();updateCart();
 </script>
 
 <style>
@@ -531,8 +545,22 @@ renderProducts();updateCart();
  <div class="gc-box">
   <button class="gc-close" onclick="gcClose()">✕</button>
   <h2>🎁 Gift Card HyperBuxx</h2>
-  <p class="gc-muted">Resgate seu código e veja o saldo da sua conta.</p>
-  <input id="gcCode" placeholder="Digite seu código (ex.: HYPER100)" autocomplete="off">
+  <p class="gc-muted">Compre seu Gift Card, resgate códigos e veja o saldo da sua conta.</p>
+  <div class="gc-card gc-buy">
+   <h3 style="margin:0 0 8px">🛒 Comprar Gift Card</h3>
+   <p class="gc-muted">Escolha um valor ou digite um valor personalizado. O Gift Card será adicionado ao carrinho.</p>
+   <div class="gc-values">
+    <button onclick="gcBuy(10)">R$ 10</button><button onclick="gcBuy(20)">R$ 20</button><button onclick="gcBuy(30)">R$ 30</button><button onclick="gcBuy(50)">R$ 50</button><button onclick="gcBuy(100)">R$ 100</button>
+   </div>
+   <div style="display:flex;gap:6px;align-items:center">
+    <input id="gcCustomValue" type="number" min="1" step="0.01" placeholder="Outro valor (ex.: 75)">
+    <button onclick="gcBuyCustom()">Adicionar</button>
+   </div>
+   <div id="gcBuyMsg" class="gc-muted"></div>
+  </div>
+  <div class="gc-card">
+   <h3 style="margin:0 0 8px">🎟️ Resgatar Gift Card</h3>
+   <input id="gcCode" placeholder="Digite seu código (ex.: HYPER100)" autocomplete="off">
   <button onclick="gcRedeem()">🎁 Resgatar código</button>
   <div id="gcMsg"></div>
   <div class="gc-card"><b>💰 Seu saldo:</b> <span id="gcBalance">Aguarde...</span></div>
@@ -571,42 +599,56 @@ renderProducts();updateCart();
  <div class="hx-box">
   <button class="hx-close" onclick="hxCloseAdmin()">✕</button>
   <h2>👑 Painel Admin — HyperBuxx</h2>
-  <p class="hx-muted">Pedidos, mensagens e confirmação de pagamentos.</p>
-  <h3>🧾 Pedidos ativos</h3><div id="hxAdminOrders"></div>
-  <hr><h3>💬 Mensagens</h3><div id="hxAdminMsgs"></div>
-  <hr><h3>🎁 Gift Cards</h3><div id="hxAdminGiftCards"></div>
+  <p class="hx-muted">Painel administrativo. O acesso do cliente continua sem login.</p>
+  <div id="hxAdminMsgs"></div>
+  <hr>
+  <h3>🎁 Gift Cards</h3>
+  <div id="hxAdminGiftCards"></div>
  </div>
 </div>
 <script>
 (function(){
- const sb=window.hxSupabase, ADMIN_EMAIL='joaopedrodega2@gmail.com', $=id=>document.getElementById(id);
- function isAdmin(user){return !!user&&(user.email||'').toLowerCase()===ADMIN_EMAIL.toLowerCase();}
+ const sb=window.hxSupabase;
+ const ADMIN_EMAIL='joaopedrodega2@gmail.com';
+ const $=id=>document.getElementById(id);
+ function isAdmin(user){return !!user && (user.email||'').toLowerCase()===ADMIN_EMAIL.toLowerCase();}
  window.hxCloseAdmin=()=>{$('hxAdminOverlay').style.display='none';};
  window.hxCloseAdminLogin=()=>{$('hxAdminLoginOverlay').style.display='none';$('hxAdminLoginMsg').textContent='';$('hxAdminPass').value='';};
  window.hxOpenAdminLogin=()=>{$('hxAdminLoginOverlay').style.display='flex';setTimeout(()=>$('hxAdminPass').focus(),50);};
  window.hxAdminLogin=async()=>{
-  const password=$('hxAdminPass').value;if(!password){$('hxAdminLoginMsg').textContent='Digite a senha.';return;}
-  const {data,error}=await sb.auth.signInWithPassword({email:ADMIN_EMAIL,password});
+  const email=$('hxAdminEmail').value.trim(); const password=$('hxAdminPass').value;
+  if(!password){$('hxAdminLoginMsg').innerHTML='<p class="hx-muted">Digite a senha.</p>';return;}
+  const {data,error}=await sb.auth.signInWithPassword({email,password});
   if(error){$('hxAdminLoginMsg').innerHTML='<p style="color:#ff7c8a">'+esc(error.message)+'</p>';return;}
-  if(!isAdmin(data.user)){await sb.auth.signOut();$('hxAdminLoginMsg').textContent='Acesso não autorizado.';return;}
-  $('hxAdminLoginOverlay').style.display='none';$('hxAdminOverlay').style.display='flex';await loadAdmin();subscribeAdmin();
+  if(!isAdmin(data.user)){await sb.auth.signOut();$('hxAdminLoginMsg').innerHTML='<p style="color:#ff7c8a">Acesso não autorizado.</p>';return;}
+  $('hxAdminLoginMsg').innerHTML='<p style="color:#55e29b">Login realizado!</p>';
+  $('hxAdminLoginOverlay').style.display='none';
+  $('hxAdminLauncher').style.display='block';
+  $('hxAdminOverlay').style.display='flex';
+  await loadAdmin();
  };
- const logoEl=document.querySelector('.logo');let pressTimer=null;
- const start=()=>{clearTimeout(pressTimer);pressTimer=setTimeout(()=>window.hxOpenAdminLogin(),1200)};const cancel=()=>clearTimeout(pressTimer);
- ['touchstart','mousedown'].forEach(e=>logoEl.addEventListener(e,start,{passive:true}));['touchend','touchcancel','mouseup','mouseleave'].forEach(e=>logoEl.addEventListener(e,cancel,{passive:true}));
- async function loadAdmin(){await loadOrders();await loadMessages();const {data:g,error:ge}=await sb.rpc('admin_list_gift_cards');$('hxAdminGiftCards').innerHTML=ge?'<p>Gift Cards não configurados.</p>':((g||[]).map(x=>`<div class="hx-msg"><b>${esc(x.code)}</b> — R$ ${Number(x.value||0).toFixed(2).replace('.',',')}<br><span class="hx-muted">${x.redeemed?'Resgatado':'Disponível'}</span></div>`).join('')||'<p>Nenhum Gift Card.</p>');}
- async function loadOrders(){
-  const {data,error}=await sb.from('orders').select('*').order('created_at',{ascending:false}).limit(100);if(error){$('hxAdminOrders').innerHTML='<p>Erro: '+esc(error.message)+'</p>';return;}
-  $('hxAdminOrders').innerHTML=(data||[]).map(o=>{const items=Array.isArray(o.items)?o.items.map(i=>`${i.qty}× ${esc(i.name)}`).join(', '):'';return `<div class="hx-msg"><b>#${esc(o.order_code)}</b> — R$ ${Number(o.total||0).toFixed(2).replace('.',',')}<br><span class="hx-muted">Pagamento: ${esc(o.payment_status)} · ${esc(o.status)} · ${new Date(o.created_at).toLocaleString()}</span><br><span class="hx-muted">${items}</span><br>${o.payment_notice_at?'<b style="color:#ffca6b">⚠️ Cliente informou que pagou</b><br>':''}${o.payment_status!=='paid'?`<button onclick="hxConfirmPay('${o.id}')">✅ Confirmar pagamento</button>`:''}${o.status!=='delivered'?`<button onclick="hxDeliver('${o.id}')">📦 Marcar como entregue</button>`:''}</div>`}).join('')||'<p>Nenhum pedido.</p>';
+ // Pressione o logo por 1,2 segundo para abrir a área administrativa.
+ const logoEl=document.querySelector('.logo'); let pressTimer=null;
+ const startAdminPress=()=>{clearTimeout(pressTimer);pressTimer=setTimeout(()=>window.hxOpenAdminLogin(),1200);};
+ const cancelAdminPress=()=>clearTimeout(pressTimer);
+ ['touchstart','mousedown'].forEach(ev=>logoEl.addEventListener(ev,startAdminPress,{passive:true}));
+ ['touchend','touchcancel','mouseup','mouseleave'].forEach(ev=>logoEl.addEventListener(ev,cancelAdminPress,{passive:true}));
+ async function refreshAdmin(){
+  const {data:{user}}=await sb.auth.getUser();
+  const admin=isAdmin(user);
+  $('hxAdminLauncher').style.display=admin?'block':'none';
+  if(admin) await loadAdmin();
  }
- async function loadMessages(){const {data,error}=await sb.from('messages').select('*').order('created_at',{ascending:false}).limit(200);$('hxAdminMsgs').innerHTML=error?'<p>Erro: '+esc(error.message)+'</p>':((data||[]).map(m=>`<div class="hx-msg"><b>${m.is_admin?'👑 Você':'👤 Cliente'}</b> · pedido ${esc(m.order_id)}<br>${esc(m.message)}<div class="hx-muted">${new Date(m.created_at).toLocaleString()}</div></div>`).join('')||'<p>Nenhuma mensagem.</p>');}
- window.hxConfirmPay=async id=>{const {error}=await sb.rpc('admin_confirm_payment',{p_order_id:id});if(error)alert(error.message);else await loadOrders();};
- window.hxDeliver=async id=>{if(!confirm('Marcar este pedido como entregue?'))return;const {error}=await sb.rpc('admin_mark_delivered',{p_order_id:id});if(error)alert(error.message);else{await loadOrders();await loadMessages();}};
- function subscribeAdmin(){if(window.hxAdminChannel)sb.removeChannel(window.hxAdminChannel);window.hxAdminChannel=sb.channel('hx-admin').on('postgres_changes',{event:'*',schema:'public',table:'orders'},loadOrders).on('postgres_changes',{event:'INSERT',schema:'public',table:'messages'},loadMessages).subscribe();}
- $('hxAdminLauncher').onclick=async()=>{const {data:{user}}=await sb.auth.getUser();if(!isAdmin(user)){window.hxOpenAdminLogin();return;}$('hxAdminOverlay').style.display='flex';await loadAdmin();subscribeAdmin();};
- sb.auth.onAuthStateChange(()=>setTimeout(async()=>{const {data:{user}}=await sb.auth.getUser();$('hxAdminLauncher').style.display=isAdmin(user)?'block':'none';},0));
- window.addEventListener('DOMContentLoaded',()=>setTimeout(async()=>{const {data:{user}}=await sb.auth.getUser();$('hxAdminLauncher').style.display=isAdmin(user)?'block':'none';},500));
- function esc(x){return String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+ async function loadAdmin(){
+  const {data,error}=await sb.from('messages').select('*').order('created_at',{ascending:false}).limit(200);
+  $('hxAdminMsgs').innerHTML=error?'<p>Configure a tabela messages no Supabase.</p>':((data||[]).map(m=>`<div class="hx-msg"><b>${m.is_admin?'👑 Você':'👤 Cliente'}</b><br>${esc(m.message)}<div class="hx-muted">${new Date(m.created_at).toLocaleString()}</div></div>`).join('')||'<p>Nenhuma mensagem.</p>');
+  const {data:g,error:ge}=await sb.rpc('admin_list_gift_cards');
+  $('hxAdminGiftCards').innerHTML=ge?'<p>Configure os Gift Cards no Supabase.</p>':((g||[]).map(x=>`<div class="hx-msg"><b>${esc(x.code)}</b> — R$ ${Number(x.value||0).toFixed(2).replace('.',',')}<br><span class="hx-muted">${x.redeemed?'Resgatado':'Disponível'}</span></div>`).join('')||'<p>Nenhum Gift Card.</p>');
+ }
+ $('hxAdminLauncher').onclick=async()=>{const {data:{user}}=await sb.auth.getUser();if(!isAdmin(user)){alert('Acesso restrito ao administrador.');return;}$('hxAdminOverlay').style.display='flex';await loadAdmin();};
+ sb.auth.onAuthStateChange(()=>setTimeout(refreshAdmin,0));
+ window.addEventListener('DOMContentLoaded',()=>setTimeout(refreshAdmin,400));
+ function esc(x){return String(x).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 })();
 </script>
 <style>
@@ -647,6 +689,17 @@ renderProducts();updateCart();
   $('gcAdmin').style.display=admin?'block':'none';
   if(admin) gcLoadAdmin();
  };
+ window.gcBuy=(value)=>{
+  const v=Number(value);
+  if(!Number.isFinite(v)||v<1){$('gcBuyMsg').innerHTML='<span class="gc-error">Informe um valor válido.</span>';return;}
+  const id=-(Date.now()+Math.floor(Math.random()*1000));
+  const item={id,cat:'giftcard',name:`Gift Card HyperBuxx — ${brl2(v)}`,price:Number(v.toFixed(2)),icon:'🎁',hot:true,giftCard:true,giftCardValue:Number(v.toFixed(2))};
+  cart.push({...item,qty:1});
+  updateCart();
+  $('gcBuyMsg').innerHTML='<span class="gc-success">🎁 Gift Card adicionado ao carrinho!</span>';
+  setTimeout(()=>{gcClose();openCart();},250);
+ };
+ window.gcBuyCustom=()=>{gcBuy(Number($('gcCustomValue').value||0));};
  window.gcRedeem=async()=>{
   const user=await gcUser();
   if(!user){$('gcMsg').innerHTML='<p class="gc-error">A loja não conseguiu criar a sessão automática. Ative <b>Anonymous Sign-Ins</b> no Supabase em Authentication → Providers. Você não precisará fazer login.</p>';return;}
