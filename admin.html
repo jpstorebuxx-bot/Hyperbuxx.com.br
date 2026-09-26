@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>Admin — HyperBuxx</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:linear-gradient(135deg,#050b16,#071a35);color:#fff;min-height:100vh;padding:18px}
+.wrap{width:min(760px,100%);margin:auto}.top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:18px}.logo{font-size:25px;font-weight:900}.box{background:#0d1729;border:1px solid #29466f;border-radius:20px;padding:20px;box-shadow:0 10px 35px #0008;margin-bottom:16px}.box h2,.box h3{margin-top:0}input,textarea{width:100%;padding:13px;margin:6px 0;border-radius:11px;border:1px solid #35527c;background:#07101d;color:#fff;font-size:15px}button{padding:12px 15px;border:0;border-radius:11px;background:#1769ff;color:#fff;font-weight:800;cursor:pointer;margin:4px 2px}button.secondary{background:#243754}button.danger{background:#8b2635}.muted{font-size:13px;opacity:.72}.msg{background:#17253d;border-radius:12px;padding:11px;margin:8px 0;border-left:3px solid #1769ff}.success{color:#55e29b}.error{color:#ff7c8a}.hidden{display:none!important}.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}@media(max-width:600px){.grid{grid-template-columns:1fr}.top{align-items:flex-start;flex-direction:column}}
+</style>
+</head>
+<body>
+<div class="wrap">
+ <div class="top"><div class="logo">👑 HyperBuxx Admin</div><button class="secondary" onclick="location.href='index.html'">← Voltar à loja</button></div>
+ <div id="loginBox" class="box">
+  <h2>🔐 Área administrativa</h2>
+  <p class="muted">Esta é uma página separada da loja. Clientes não têm acesso ao painel.</p>
+  <input id="email" type="email" value="joaopedrodega2@gmail.com" readonly>
+  <input id="pass" type="password" placeholder="Senha do administrador" autocomplete="current-password">
+  <button onclick="login()">Entrar no painel</button>
+  <div id="loginMsg"></div>
+ </div>
+ <div id="panel" class="hidden">
+  <div class="box">
+   <div class="top"><div><h2 style="margin-bottom:4px">📊 Painel Admin</h2><div class="muted">Gerencie mensagens e Gift Cards.</div></div><button class="danger" onclick="logout()">Sair</button></div>
+  </div>
+  <div class="box">
+   <h3>💬 Mensagens dos clientes</h3>
+   <div id="messages"><p class="muted">Carregando...</p></div>
+  </div>
+  <div class="box">
+   <h3>🎁 Criar Gift Card</h3>
+   <div class="grid"><input id="newCode" placeholder="Código (ex.: HYPER100)"><input id="newValue" type="number" min="1" step="0.01" placeholder="Valor em reais"></div>
+   <button onclick="createGiftCard()">➕ Criar código</button>
+   <div id="gcMsg"></div>
+   <hr style="border-color:#243754;border-width:1px 0 0;margin:18px 0">
+   <h3>🎟️ Gift Cards existentes</h3>
+   <div id="giftCards"><p class="muted">Carregando...</p></div>
+  </div>
+ </div>
+</div>
+<script>
+window.HYPERBUXX_SUPABASE_URL='https://qubcqwtmomrtewwfodho.supabase.co';
+window.HYPERBUXX_SUPABASE_KEY='sb_publishable_-dWXcJVseWksqKN5YKgiRg_BI92MBkw';
+const sb=window.supabase.createClient(window.HYPERBUXX_SUPABASE_URL,window.HYPERBUXX_SUPABASE_KEY);
+const ADMIN_EMAIL='joaopedrodega2@gmail.com';
+const $=id=>document.getElementById(id);
+const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const brl=v=>Number(v||0).toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
+function isAdmin(u){return !!u&&(u.email||'').toLowerCase()===ADMIN_EMAIL.toLowerCase()}
+async function login(){const pass=$('pass').value;if(!pass){$('loginMsg').innerHTML='<p class="error">Digite a senha.</p>';return}const {data,error}=await sb.auth.signInWithPassword({email:ADMIN_EMAIL,password:pass});if(error){$('loginMsg').innerHTML='<p class="error">'+esc(error.message)+'</p>';return}if(!isAdmin(data.user)){await sb.auth.signOut();$('loginMsg').innerHTML='<p class="error">Acesso não autorizado.</p>';return}showPanel();await loadAdmin()}
+function showPanel(){$('loginBox').classList.add('hidden');$('panel').classList.remove('hidden')}
+async function logout(){await sb.auth.signOut();location.reload()}
+async function loadAdmin(){await loadMessages();await loadGiftCards()}
+async function loadMessages(){const {data,error}=await sb.from('messages').select('*').order('created_at',{ascending:false}).limit(200);if(error){$('messages').innerHTML='<p class="error">Erro ao carregar mensagens: '+esc(error.message)+'</p>';return}$('messages').innerHTML=(data||[]).map(m=>'<div class="msg"><b>'+(m.is_admin?'👑 Você':'👤 Cliente')+'</b><br>'+esc(m.message)+'<div class="muted">'+new Date(m.created_at).toLocaleString('pt-BR')+'</div></div>').join('')||'<p class="muted">Nenhuma mensagem.</p>'}
+async function loadGiftCards(){const {data,error}=await sb.rpc('admin_list_gift_cards');if(error){$('giftCards').innerHTML='<p class="error">Erro ao carregar Gift Cards: '+esc(error.message)+'</p>';return}$('giftCards').innerHTML=(data||[]).map(x=>'<div class="msg"><b>'+esc(x.code)+'</b> — '+brl(x.value)+'<br><span class="muted">'+(x.redeemed?'Resgatado':'Disponível')+'</span></div>').join('')||'<p class="muted">Nenhum Gift Card.</p>'}
+async function createGiftCard(){const code=$('newCode').value.trim().toUpperCase().replace(/[^A-Z0-9_-]/g,'');const value=Number($('newValue').value);if(!code||!value||value<=0){$('gcMsg').innerHTML='<p class="error">Informe código e valor válidos.</p>';return}const {data,error}=await sb.rpc('create_gift_card',{p_code:code,p_value:value});if(error){$('gcMsg').innerHTML='<p class="error">'+esc(error.message)+'</p>';return}$('gcMsg').innerHTML='<p class="success">✅ Código '+esc(code)+' criado com '+brl(value)+'.</p>';$('newCode').value='';$('newValue').value='';await loadGiftCards()}
+sb.auth.onAuthStateChange(()=>setTimeout(checkSession,0));
+async function checkSession(){const {data:{user}}=await sb.auth.getUser();if(isAdmin(user)){showPanel();await loadAdmin()}}
+checkSession();
+</script>
+</body>
+</html>
